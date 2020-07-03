@@ -37,14 +37,14 @@ class DriverController extends Controller
      */
     public function store(Request $request)
     {
-        $driver = new Driver;
         if ($request->hasFile('foto')) {
-            $driver->nama = $request->nama;
-            $driver->nik = $request->nik;
+
+            $driver = $request->all();
 
             $nama_file = $request->foto->getClientOriginalName();
-            $driver->foto = $request->foto->storeAs('foto', $nama_file, 'public');
-            $driver->save();
+            $driver['foto'] = $request->foto->storeAs('foto', $nama_file, 'public');
+
+            Driver::create($driver);
         }
 
         return redirect()->to('/driver');
@@ -69,7 +69,7 @@ class DriverController extends Controller
      */
     public function edit(Driver $driver)
     {
-        return view('drivers.edit', compact('driver'));
+        return view('drivers', compact('driver'));
     }
 
     /**

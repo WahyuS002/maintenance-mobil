@@ -15,3 +15,6 @@
 <link rel="stylesheet" href="{{ asset('staradmin/assets/css/demo_1/style.css') }}">
 <!-- End Layout styles -->
 <link rel="shortcut icon" href="{{ asset('staradmin/assets/images/favicon.png') }}" />
+
+{{-- MY CSS --}}
+<link rel="stylesheet" href="{{ asset('assets/style.css') }}">

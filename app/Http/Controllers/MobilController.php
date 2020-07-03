@@ -37,18 +37,21 @@ class MobilController extends Controller
      */
     public function store(Request $request)
     {
-        $mobil = new Mobil();
+        // $this->validate($request, [
+        //     'no_plat' => 'required',
+        //     'nama_mobil' => 'required',
+        //     'tipe_mobil' => 'required',
+        //     'max_minyak' => 'required',
+        //     'foto' => 'required'
+        // ]);
+
         if ($request->hasFile('foto')) {
-            $mobil->no_plat = $request->no_plat;
-            $mobil->nama_mobil = $request->nama_mobil;
-            $mobil->tipe_mobil = $request->tipe_mobil;
-            $mobil->max_minyak = $request->max_minyak;
+            $mobil = $request->all();
 
             $nama_file = $request->foto->getClientOriginalName();
-            $mobil->foto = $request->foto->storeAs('foto', $nama_file, 'public');
-            $mobil->save();
+            $mobil['foto'] = $request->foto->storeAs('foto', $nama_file, 'public');
 
-            return redirect()->to('mobil');
+            Mobil::Create($mobil);
         }
 
         return redirect()->back();
@@ -73,7 +76,7 @@ class MobilController extends Controller
      */
     public function edit(Mobil $mobil)
     {
-        return view('mobil.edit', compact('mobil'));
+        return view('mobil', compact('mobil'));
     }
 
     /**
