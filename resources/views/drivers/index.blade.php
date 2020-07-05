@@ -30,7 +30,7 @@
                     <div class="">
                         <strong>{{ $driver->nama }}</strong>
                     </div>
-                    <div class="">
+                    <div class="text-muted">
                         <span>{{ $driver->nik }}</span>
                     </div>
                     <div class="d-flex justify-content-center mt-4">
