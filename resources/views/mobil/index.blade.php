@@ -23,7 +23,7 @@
                 <div class="card rounded-m5">                                       
                     <div>
                         <a href="/mobil/{{ $mobil->id }}/edit" data-toggle="modal" data-target="#editModal{{ $mobil->id }}">
-                            <img src="{{ url('storage/'.$mobil->foto) }}" alt="tidak ada gambar" class="card-img-top"  style="height: 200px; width: 100%;">                            
+                            <img src="{{ url('storage/'.$mobil->foto) }}" alt="tidak ada gambar" class="card-img-top p-3"  style="height: 200px; width: 100%;">                            
                         </a>
                     </div>                    
                     <div class="card-footer">                        
@@ -31,7 +31,7 @@
                             <strong>{{ $mobil->nama_mobil }}</strong>
                         </div>
                         <div class="">
-                            <span>{{ $mobil->tipe_mobil }}</span>
+                            <span>{{ $mobil->brand->nama_brand }}</span>
                         </div>
                         <div class="d-flex justify-content-center mt-4">
                             <a href="/mobil/{{ $mobil->id }}/edit" data-toggle="modal" data-target="#editModal{{ $mobil->id }}">
@@ -63,6 +63,10 @@
             <form action="/mobil/store" method="POST" enctype="multipart/form-data">
                 @csrf               
                 <div class="form-group">
+                    <label for="brand_id">Brand</label>
+                    <input type="text" class="form-control" id="brand_id" name="brand_id">
+                </div>                
+                <div class="form-group">
                     <label for="no_plat">Nomor Plat</label>
                     <input type="text" class="form-control" id="no_plat" name="no_plat">
                     {{-- @error('no_plat')
@@ -73,10 +77,6 @@
                     <label for="nama_mobil">Mobil</label>
                     <input type="text" class="form-control" id="nama_mobil" name="nama_mobil">
                 </div>
-                <div class="form-group">
-                    <label for="tipe_mobil">Brand</label>
-                    <input type="text" class="form-control" id="tipe_mobil" name="tipe_mobil">
-                </div>                
                 <div class="form-group">
                     <label for="max_minyak">Kapasitas Minyak</label>
                     <input type="text" class="form-control" id="max_minyak" name="max_minyak">

@@ -6,5 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Mobil extends Model
 {
-    protected $fillable = ['no_plat', 'nama_mobil', 'tipe_mobil', 'max_minyak', 'foto'];
+    protected $fillable = ['brand_id', 'no_plat', 'nama_mobil', 'max_minyak', 'foto'];
+
+    public function brand()
+    {
+        return $this->belongsTo(Brand::class);
+    }
 }

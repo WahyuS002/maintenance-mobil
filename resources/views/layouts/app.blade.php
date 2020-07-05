@@ -1,3 +1,7 @@
+@php
+    $brands = App\Brand::all();
+@endphp
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -17,7 +21,7 @@
       <!-- partial -->
       <div class="container-fluid page-body-wrapper">
         <!-- partial:partials/_sidebar.html -->
-        @include('includes.sidebar')
+        @include('includes.sidebar', ['brands' => $brands])        
         <!-- partial -->
         <div class="main-panel">
           

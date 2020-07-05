@@ -31,3 +31,5 @@ Route::get('/mobil/{mobil:id}/edit', 'MobilController@edit');
 Route::patch('/mobil/{mobil:id}/update', 'MobilController@update');
 
 Route::delete('/mobil/{mobil:id}/delete', 'MobilController@destroy');
+
+Route::get('/brand/{brand:nama_brand}', 'BrandController@show');
