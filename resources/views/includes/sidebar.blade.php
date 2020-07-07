@@ -48,14 +48,15 @@
     </ul>
   </nav> --}}
 
+  
   <!-- aside -->
   <div id="aside" class="app-aside modal fade folded md nav-expand">
   	<div class="left navside indigo-900 dk" layout="column">
       <div class="navbar navbar-md no-radius">
         <!-- brand -->
         <a class="navbar-brand">
-        	<div ui-include="'../assets/images/logo.svg'"></div>
-        	<img src="../assets/images/logo.png" alt="." class="hide">
+        	<div ui-include="'{{ asset('flatkit/assets/images/logo.svg') }}'"></div>
+        	<img src="{{ asset('flatkit/assets/images/logo.png') }}" alt="." class="hide">
         	<span class="hidden-folded inline">Flatkit</span>
         </a>
         <!-- / brand -->
@@ -72,7 +73,7 @@
                 <a href="dashboard.html" >
                   <span class="nav-icon">
                     <i class="material-icons">&#xe3fc;
-                      <span ui-include="'../assets/images/i_0.svg'"></span>
+                      <span ui-include="'{{ asset('flatkit/assets/images/i_0.svg') }}'"></span>
                     </i>
                   </span>
                   <span class="nav-text">Dashboard</span>
@@ -89,7 +90,7 @@
                   </span>
                   <span class="nav-icon">
                     <i class="material-icons">&#xe5c3;
-                      <span ui-include="'../assets/images/i_1.svg'"></span>
+                      <span ui-include="'{{ asset('flatkit/assets/images/i_1.svg') }}'"></span>
                     </i>
                   </span>
                   <span class="nav-text">Apps</span>
@@ -120,7 +121,7 @@
                   </span>
                   <span class="nav-icon">
                     <i class="material-icons">&#xe8f0;
-                      <span ui-include="'../assets/images/i_2.svg'"></span>
+                      <span ui-include="'{{ asset('flatkit/assets/images/i_2.svg') }}'"></span>
                     </i>
                   </span>
                   <span class="nav-text">Layouts</span>
@@ -148,7 +149,7 @@
                 <a href="widget.html" >
                   <span class="nav-icon">
                     <i class="material-icons">&#xe8d2;
-                      <span ui-include="'../assets/images/i_3.svg'"></span>
+                      <span ui-include="'{{ asset('flatkit/assets/images/i_3.svg') }}'"></span>
                     </i>
                   </span>
                   <span class="nav-text">Widgets</span>
@@ -169,7 +170,7 @@
                   </span>
                   <span class="nav-icon">
                     <i class="material-icons">&#xe429;
-                      <span ui-include="'../assets/images/i_4.svg'"></span>
+                      <span ui-include="'{{ asset('flatkit/assets/images/i_4.svg') }}'"></span>
                     </i>
                   </span>
                   <span class="nav-text">UI kit</span>
@@ -271,7 +272,7 @@
                   <span class="nav-label"><b class="label no-bg">9</b></span>
                   <span class="nav-icon">
                     <i class="material-icons">&#xe3e8;
-                      <span ui-include="'../assets/images/i_5.svg'"></span>
+                      <span ui-include="'{{ asset('flatkit/assets/images/i_5.svg') }}'"></span>
                     </i>
                   </span>
                   <span class="nav-text">Pages</span>
@@ -357,7 +358,7 @@
                   </span>
                   <span class="nav-icon">
                     <i class="material-icons">&#xe39e;
-                      <span ui-include="'../assets/images/i_6.svg'"></span>
+                      <span ui-include="'{{ asset('flatkit/assets/images/i_6.svg') }}'"></span>
                     </i>
                   </span>
                   <span class="nav-text">Form</span>
@@ -413,7 +414,7 @@
                   </span>
                   <span class="nav-icon">
                     <i class="material-icons">&#xe896;
-                      <span ui-include="'../assets/images/i_7.svg'"></span>
+                      <span ui-include="'{{ asset('flatkit/assets/images/i_7.svg') }}'"></span>
                     </i>
                   </span>
                   <span class="nav-text">Tables</span>
@@ -446,7 +447,7 @@
                   </span>
                   <span class="nav-icon">
                     <i class="material-icons">&#xe1b8;
-                      <span ui-include="'../assets/images/i_8.svg'"></span>
+                      <span ui-include="'{{ asset('flatkit') }}/assets/images/i_8.svg'"></span>
                     </i>
                   </span>
                   <span class="nav-text">Charts</span>
@@ -519,7 +520,7 @@
         </nav>
       </div>
       <div flex-no-shrink>
-        <div ui-include="'../views/blocks/aside.bottom.0.html'"></div>
+        <div ui-include="'{{ asset('flatkit') }}/views/blocks/aside.bottom.0.html'"></div>
       </div>
     </div>
   </div>

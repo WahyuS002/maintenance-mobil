@@ -23,22 +23,22 @@
   <script src="{{ asset('flatkit/libs/jquery/jQuery-Storage-API/jquery.storageapi.min.js') }}"></script>
   <script src="{{ asset('flatkit/libs/jquery/PACE/pace.min.js') }}"></script>
 
-  <script src="{{ asset('flatkit/libs/scripts/config.lazyload.js') }}"></script>
+  <script src="{{ asset('flatkit/html/scripts/config.lazyload.js') }}"></script>
 
-  <script src="{{ asset('flatkit/libs/scripts/palette.js') }}"></script>
-  <script src="{{ asset('flatkit/libs/scripts/ui-load.js') }}"></script>
-  <script src="{{ asset('flatkit/libs/scripts/ui-jp.js') }}"></script>
-  <script src="{{ asset('flatkit/libs/scripts/ui-include.js') }}"></script>
-  <script src="{{ asset('flatkit/libs/scripts/ui-device.js') }}"></script>
-  <script src="{{ asset('flatkit/libs/scripts/ui-form.js') }}"></script>
-  <script src="{{ asset('flatkit/libs/scripts/ui-nav.js') }}"></script>
-  <script src="{{ asset('flatkit/libs/scripts/ui-screenfull.js') }}"></script>
-  <script src="{{ asset('flatkit/libs/scripts/ui-scroll-to.js') }}"></script>
-  <script src="{{ asset('flatkit/libs/scripts/ui-toggle-class.js') }}"></script>
+  <script src="{{ asset('flatkit/html/scripts/palette.js') }}"></script>
+  <script src="{{ asset('flatkit/html/scripts/ui-load.js') }}"></script>
+  <script src="{{ asset('flatkit/html/scripts/ui-jp.js') }}"></script>
+  <script src="{{ asset('flatkit/html/scripts/ui-include.js') }}"></script>
+  <script src="{{ asset('flatkit/html/scripts/ui-device.js') }}"></script>
+  <script src="{{ asset('flatkit/html/scripts/ui-form.js') }}"></script>
+  <script src="{{ asset('flatkit/html/scripts/ui-nav.js') }}"></script>
+  <script src="{{ asset('flatkit/html/scripts/ui-screenfull.js') }}"></script>
+  <script src="{{ asset('flatkit/html/scripts/ui-scroll-to.js') }}"></script>
+  <script src="{{ asset('flatkit/html/scripts/ui-toggle-class.js') }}"></script>
 
-  <script src="{{ asset('flatkit/libs/scripts/app.js') }}"></script>
+  <script src="{{ asset('flatkit/html/scripts/app.js') }}"></script>
 
   <!-- ajax -->
   <script src="{{ asset('flatkit/libs/jquery/jquery-pjax/jquery.pjax.js') }}"></script>
-  <script src="{{ asset('flatkit/libs/scripts/ajax.js') }}"></script>
+  <script src="{{ asset('flatkit/html/scripts/ajax.js') }}"></script>
 <!-- endbuild -->

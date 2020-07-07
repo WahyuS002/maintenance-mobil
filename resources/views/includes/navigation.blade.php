@@ -1,33 +1,56 @@
-<!-- partial:partials/_navbar.html -->
-
-<nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
-    <div class="text-center navbar-brand-wrapper d-flex align-items-top justify-content-center">
-      <a class="navbar-brand brand-logo" href="#">
-        <img src="{{ asset('staradmin/assets/images/logo.svg') }}" alt="logo" /> </a>
-      <a class="navbar-brand brand-logo-mini" href="index.html">
-        <img src="{{ asset('staradmin/assets/images/logo-mini.svg') }}" alt="logo" /> </a>
-    </div>
-    <div class="navbar-menu-wrapper d-flex align-items-center">
-      <ul class="navbar-nav ml-auto">            
-        <li class="nav-item dropdown d-none d-xl-inline-block user-dropdown">
-          <a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
-            <img class="img-xs rounded-circle" src="{{ asset('staradmin/assets/images/faces/face8.jpg') }}" alt="Profile image"> </a>
-          <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
-            <div class="dropdown-header text-center">
-              <img class="img-md rounded-circle" src="{{ asset('staradmin/assets/images/faces/face8.jpg') }}" alt="Profile image">
-              <p class="mb-1 mt-3 font-weight-semibold">Allen Moreno</p>
-              <p class="font-weight-light text-muted mb-0">allenmoreno@gmail.com</p>
-            </div>
-            <a class="dropdown-item">My Profile <span class="badge badge-pill badge-danger">1</span><i class="dropdown-item-icon ti-dashboard"></i></a>
-            <a class="dropdown-item">Messages<i class="dropdown-item-icon ti-comment-alt"></i></a>
-            <a class="dropdown-item">Activity<i class="dropdown-item-icon ti-location-arrow"></i></a>
-            <a class="dropdown-item">FAQ<i class="dropdown-item-icon ti-help-alt"></i></a>
-            <a class="dropdown-item">Sign Out<i class="dropdown-item-icon ti-power-off"></i></a>
-          </div>
+<div class="app-header white box-shadow navbar-md">
+  <div class="navbar navbar-toggleable-sm flex-row align-items-center">
+      <!-- Open side - Naviation on mobile -->
+      <a data-toggle="modal" data-target="#aside" class="hidden-lg-up mr-3">
+        <i class="material-icons">&#xe5d2;</i>
+      </a>
+      <!-- / -->
+  
+      <!-- Page title - Bind to $state's title -->
+      <div class="mb-0 h5 no-wrap" ng-bind="$state.current.data.title" id="pageTitle"></div>
+  
+      <!-- navbar collapse -->
+      <div class="collapse navbar-collapse" id="collapse">
+        <!-- link and dropdown -->
+        <ul class="nav navbar-nav mr-auto">
+          <li class="nav-item dropdown">
+            <a class="nav-link" href data-toggle="dropdown">
+              <i class="fa fa-fw fa-plus text-muted"></i>
+              <span>New</span>
+            </a>
+            <div ui-include="'{{ asset('flatkit/views/blocks/dropdown.new.html') }}'"></div>
+          </li>
+        </ul>
+  
+        <div ui-include="'{{ asset('flatkit/views/blocks/navbar.form.html') }}'"></div>
+        <!-- / -->
+      </div>
+      <!-- / navbar collapse -->
+  
+      <!-- navbar right -->
+      <ul class="nav navbar-nav ml-auto flex-row">
+        <li class="nav-item dropdown pos-stc-xs">
+          <a class="nav-link mr-2" href data-toggle="dropdown">
+            <i class="material-icons">&#xe7f5;</i>
+            <span class="label label-sm up warn">3</span>
+          </a>
+          <div ui-include="'{{ asset('flatkit/views/blocks/dropdown.notification.html') }}'"></div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link p-0 clear" href="#" data-toggle="dropdown">
+            <span class="avatar w-32">
+              <img src="{{ asset('flatkit/assets/images/a0.jpg') }}" alt="...">
+              <i class="on b-white bottom"></i>
+            </span>
+          </a>
+          <div ui-include="'{{ asset('flatkit/views/blocks/dropdown.user.html') }}'"></div>
+        </li>
+        <li class="nav-item hidden-md-up">
+          <a class="nav-link pl-2" data-toggle="collapse" data-target="#collapse">
+            <i class="material-icons">&#xe5d4;</i>
+          </a>
         </li>
       </ul>
-      <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
-        <span class="mdi mdi-menu"></span>
-      </button>
-    </div>
-  </nav>
+      <!-- / navbar right -->
+  </div>
+</div>
