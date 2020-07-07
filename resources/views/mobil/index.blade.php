@@ -1,3 +1,7 @@
+@php
+  $brands = App\Brand::get();    
+@endphp
+
 @extends('layouts.app')
 
 @section('content')
@@ -6,16 +10,12 @@
     <div class="row page-title-header">
       <div class="col-12">
         <div class="page-header">
-          <h4 class="page-title">Mobil</h4>                  
-        </div>
-      </div>
-      <div class="col-md-12">
-        <div class="page-header-toolbar">                  
+          <h4 class="page-title">Mobil</h4>  
           <div class="ml-auto">
             <button type="button" class="btn btn-primary toolbar-item p-3" data-toggle="modal" data-target="#tambahModal">Tambah Mobil</button>                    
-          </div>
+          </div>                
         </div>
-      </div>
+      </div>      
     </div>     
     <div class="row">
         @foreach ($mobils as $mobil)
@@ -62,10 +62,25 @@
 
             <form action="/mobil/store" method="POST" enctype="multipart/form-data">
                 @csrf               
-                <div class="form-group">
+                {{-- <div class="form-group">
                     <label for="brand_id">Brand</label>
                     <input type="text" class="form-control" id="brand_id" name="brand_id">
-                </div>                
+                </div>--}}
+
+                <div class="form-group">
+                  <label for="dropdown">Brand Mobil</label>                 
+          
+                  <div>
+                    <select class="form-control" name="brand_id">
+                      <option value="">Select</option>
+                      @foreach($brands as $brand)
+                        <option value="{{ $brand->id }}">{{ $brand->nama_brand }}</option>
+                      @endforeach
+                    </select>
+                  </div>
+                </div>
+            
+
                 <div class="form-group">
                     <label for="no_plat">Nomor Plat</label>
                     <input type="text" class="form-control" id="no_plat" name="no_plat">
@@ -86,6 +101,7 @@
                     <input type="file" class="form-control" id="foto" name="foto">
                 </div>                
                 <div class="modal-footer">
+                  <button type="submit" class="float-right btn btn-warning">Tambah Brand</button>
                   <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                   <button type="submit" class="btn btn-primary">Tambah</button>
                 </div>
@@ -111,6 +127,18 @@
                 @method('patch')
                 @csrf               
                 <div class="form-group">
+                  <label for="dropdown">Brand Mobil</label>
+          
+                  <div>
+                    <select class="form-control" name="brand_id">
+                      <option value="">Select</option>
+                      @foreach($brands as $brand)
+                        <option value="{{ $brand->id }}">{{ $brand->nama_brand }}</option>
+                      @endforeach
+                    </select>
+                  </div>
+                </div>               
+                <div class="form-group">
                     <label for="no_plat">Nomor Plat</label>
                     <input type="text" class="form-control" id="no_plat" name="no_plat" value="{{ $mobil->no_plat }}">
                 </div>
@@ -118,10 +146,6 @@
                     <label for="nama_mobil">Mobil</label>
                     <input type="text" class="form-control" id="nama_mobil" name="nama_mobil" value=" {{ $mobil->nama_mobil }}">
                 </div>
-                <div class="form-group">
-                    <label for="tipe_mobil">Brand</label>
-                    <input type="text" class="form-control" id="tipe_mobil" name="tipe_mobil" value="{{ $mobil->tipe_mobil }}">
-                </div>                
                 <div class="form-group">
                     <label for="max_minyak">Kapasitas Minyak</label>
                     <input type="text" class="form-control" id="max_minyak" name="max_minyak" value="{{ $mobil->max_minyak }}">

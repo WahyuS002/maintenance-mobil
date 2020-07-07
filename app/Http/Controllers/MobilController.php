@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Mobil;
+use App\Brand;
+
 use Illuminate\Http\Request;
 
 class MobilController extends Controller
@@ -15,6 +17,7 @@ class MobilController extends Controller
     public function index()
     {
         $mobils = Mobil::get();
+        $brands = Brand::get();
 
         return view('mobil.index', ['mobils' => $mobils]);
     }
@@ -88,11 +91,10 @@ class MobilController extends Controller
      */
     public function update(Request $request, Mobil $mobil)
     {
-        $mobil = new Mobil();
         if ($request->hasFile('foto')) {
+            $mobil->brand_id = $request->brand_id;
             $mobil->no_plat = $request->no_plat;
             $mobil->nama_mobil = $request->nama_mobil;
-            $mobil->tipe_mobil = $request->tipe_mobil;
             $mobil->max_minyak = $request->max_minyak;
 
             $nama_file = $request->foto->getClientOriginalName();
@@ -112,6 +114,6 @@ class MobilController extends Controller
     {
         $mobil->delete();
 
-        return redirect()->to('/mobil');
+        return redirect()->back();
     }
 }

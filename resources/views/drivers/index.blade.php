@@ -6,16 +6,12 @@
     <div class="row page-title-header">
       <div class="col-12">
         <div class="page-header">
-          <h4 class="page-title">Driver</h4>                  
-        </div>
-      </div>
-      <div class="col-md-12">
-        <div class="page-header-toolbar">                  
+          <h4 class="page-title">Driver</h4>  
           <div class="ml-auto">
             <button type="button" class="btn btn-primary toolbar-item p-3" data-toggle="modal" data-target="#tambahModal">Tambah Driver</button>                    
-          </div>
+          </div>                
         </div>
-      </div>
+      </div>     
     </div>     
     <div class="row">
         @foreach ($drivers as $driver)
