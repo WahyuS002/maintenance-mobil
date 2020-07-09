@@ -32,4 +32,10 @@ Route::patch('/mobil/{mobil:id}/update', 'MobilController@update');
 
 Route::delete('/mobil/{mobil:id}/delete', 'MobilController@destroy');
 
+// BRAND
+Route::get('/brand', 'BrandController@index')->name('brand');
 Route::get('/brand/{brand:nama_brand}', 'BrandController@show');
+
+Route::patch('/brand/{brand:id}/update', 'BrandController@update');
+
+Route::delete('/brand/{brand:id}/delete', 'BrandController@destroy');

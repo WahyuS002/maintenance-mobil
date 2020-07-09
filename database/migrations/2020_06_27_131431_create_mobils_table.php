@@ -15,7 +15,7 @@ class CreateMobilsTable extends Migration
     {
         Schema::create('mobils', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('brand_id');
+            $table->foreignId('brand_id')->onDelete('cascade');
             $table->string('no_plat', 32);
             $table->string('nama_mobil', 128);
             // $table->string('tipe_mobil', 128);

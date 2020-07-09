@@ -5,7 +5,6 @@
 @extends('layouts.app')
 
 @section('content')
-
 <div ui-view class="app-body" id="view">
   <div class="padding">
     <div class="margin">
@@ -14,13 +13,13 @@
           <h5 class="mb-0 _300">Mobil</h5>
         </div>
         <div class="col-md-0">
-          <a class="btn btn-sm btn-icon white" data-toggle="modal" data-target="#tambahModal">
+          <a class="btn btn-sm btn-icon white" data-toggle="modal" data-target="#tambahModalMobil">
             <i class="fa fa-plus"></i>
           </a>
         </div>
       </div>         
     </div>
-    <div class="row">
+    <div class="row">      
       <div class="col-md-9">
         <div class="row">
           @foreach ($mobils as $mobil)
@@ -41,7 +40,7 @@
                 </div>
               </div>
             </div>        
-          @endforeach
+          @endforeach                                                                                        
         </div>
       </div>
     </div>
@@ -49,7 +48,7 @@
 </div>
 
 <!-- Tambah Modal -->
-<div class="modal fade" id="tambahModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="tambahModalMobil" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content box-shadow-md black lt m-b">
       <div class="modal-header">
