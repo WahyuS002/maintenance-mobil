@@ -15,6 +15,10 @@ class CreateTreatmentsTable extends Migration
     {
         Schema::create('treatments', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('mobil_id');
+            $table->string('jenis', 16);
+            $table->date('waktu');
+
             $table->timestamps();
         });
     }

@@ -12,4 +12,9 @@ class Mobil extends Model
     {
         return $this->belongsTo(Brand::class);
     }
+
+    public function treatments()
+    {
+        return $this->hasMany(Treatment::class);
+    }
 }

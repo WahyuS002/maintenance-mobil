@@ -90,6 +90,17 @@
                   <span class="nav-text">Brand</span>
                 </a>
               </li>                                 
+              
+              <li>
+                <a href="{{ route('treatment') }}" >
+                  <span class="nav-icon">
+                    <i class="material-icons">&#xe3fc;
+                      <span ui-include="'{{ asset('flatkit/assets/images/i_0.svg') }}'"></span>
+                    </i>
+                  </span>
+                  <span class="nav-text">Treatment</span>
+                </a>
+              </li>                                 
           
               <li>
                 <a href="{{ route('admin.driver') }}" >

@@ -39,3 +39,12 @@ Route::get('/brand/{brand:nama_brand}', 'BrandController@show');
 Route::patch('/brand/{brand:id}/update', 'BrandController@update');
 
 Route::delete('/brand/{brand:id}/delete', 'BrandController@destroy');
+
+// TREATMENT
+Route::get('/treatment', 'TreatmentController@index')->name('treatment');
+
+Route::post('/treatment/store', 'TreatmentController@store')->name('treatment.store');
+
+Route::patch('/treatment/{treatment:id}/update', 'TreatmentController@update')->name('treatment.update');
+
+Route::delete('/treatment/{treatment:id}/delete', 'TreatmentController@destroy');
