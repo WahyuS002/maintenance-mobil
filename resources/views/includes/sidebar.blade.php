@@ -70,10 +70,10 @@
               </li>
               
               <li>
-                <a href="dashboard.html" >
+                <a href="{{ route('home') }}" >
                   <span class="nav-icon">
-                    <i class="material-icons">&#xe3fc;
-                      <span ui-include="'{{ asset('flatkit/assets/images/i_0.svg') }}'"></span>
+                    <i class="fa fa-area-chart">
+                      {{-- <span ui-include="'{{ asset('flatkit/assets/images/i_0.svg') }}'"></span> --}}
                     </i>
                   </span>
                   <span class="nav-text">Dashboard</span>
@@ -83,8 +83,8 @@
               <li>
                 <a href="{{ route('brand') }}" >
                   <span class="nav-icon">
-                    <i class="material-icons">&#xe3fc;
-                      <span ui-include="'{{ asset('flatkit/assets/images/i_0.svg') }}'"></span>
+                    <i class="fa fa-adn">
+                      {{-- <span ui-include="'{{ asset('flatkit/assets/images/i_0.svg') }}'"></span> --}}
                     </i>
                   </span>
                   <span class="nav-text">Brand</span>
@@ -94,8 +94,8 @@
               <li>
                 <a href="{{ route('treatment') }}" >
                   <span class="nav-icon">
-                    <i class="material-icons">&#xe3fc;
-                      <span ui-include="'{{ asset('flatkit/assets/images/i_0.svg') }}'"></span>
+                    <i class="fa fa-plus-square">
+                      {{-- <span ui-include="'{{ asset('flatkit/assets/images/i_0.svg') }}'"></span> --}}
                     </i>
                   </span>
                   <span class="nav-text">Treatment</span>
@@ -105,8 +105,8 @@
               <li>
                 <a href="{{ route('admin.driver') }}" >
                   <span class="nav-icon">
-                    <i class="material-icons">&#xe8d2;
-                      <span ui-include="'{{ asset('flatkit/assets/images/i_3.svg') }}'"></span>
+                    <i class="fa fa-group">
+                      {{-- <span ui-include="'{{ asset('flatkit/assets/images/i_3.svg') }}'"></span> --}}
                     </i>
                   </span>
                   <span class="nav-text">Drivers</span>
@@ -119,8 +119,8 @@
                     <i class="fa fa-caret-down"></i>
                   </span>
                   <span class="nav-icon">
-                    <i class="material-icons">&#xe8f0;
-                      <span ui-include="'{{ asset('flatkit/assets/images/i_2.svg') }}'"></span>
+                    <i class="fa fa-car">
+                      {{-- <span ui-include="'{{ asset('flatkit/assets/images/i_2.svg') }}'"></span> --}}
                     </i>
                   </span>
                   <span class="nav-text">Mobil</span>
@@ -148,8 +148,8 @@
               <li>
                 <a href="widget.html" >
                   <span class="nav-icon">
-                    <i class="material-icons">&#xe8d2;
-                      <span ui-include="'{{ asset('flatkit/assets/images/i_3.svg') }}'"></span>
+                    <i class="fa fa-user">
+                      {{-- <span ui-include="'{{ asset('flatkit/assets/images/i_3.svg') }}'"></span> --}}
                     </i>
                   </span>
                   <span class="nav-text">My Profile</span>
