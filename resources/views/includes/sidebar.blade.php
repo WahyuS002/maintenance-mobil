@@ -155,13 +155,33 @@
                   <span class="nav-text">My Profile</span>
                 </a>
               </li>
-                        
+  
           
             </ul>
         </nav>
       </div>
-      <div flex-no-shrink>
-        <div ui-include="'{{ asset('flatkit') }}/views/blocks/aside.bottom.0.html'"></div>
+      <div flex-no-shrink>        
+          {{-- <div ui-include="'{{ asset('flatkit') }}/views/blocks/aside.bottom.0.blade.php'"></div> --}}
+          <nav ui-nav>
+            <ul class="nav">
+                <li>
+                    <div class="b-b b m-t-sm"></div>
+                </li>
+                <li class="no-bg">                    
+                    <a href="{{ route('logout') }}" 
+                    onclick="event.preventDefault();
+                      document.getElementById('logout-form').submit();">
+                        <span class="nav-icon">
+                            <i class="material-icons">&#xe8ac;</i>
+                        </span>
+                        <span class="nav-text">Logout</span>
+                    </a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST">
+                      @csrf
+                    </form>
+                </li>
+            </ul>
+        </nav>
       </div>
     </div>
   </div>
