@@ -155,8 +155,7 @@
                   <span class="nav-text">My Profile</span>
                 </a>
               </li>
-  
-          
+            
             </ul>
         </nav>
       </div>

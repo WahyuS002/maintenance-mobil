@@ -16,9 +16,12 @@ class CreateDriversTable extends Migration
         Schema::create('drivers', function (Blueprint $table) {
             $table->id();
             $table->string('nama', 64);
-            $table->char('nik', 16);
+
+            $table->char('nik', 16)->unique();
+            $table->string('password')->nullable();
+            $table->rememberToken();
+
             $table->string('foto', 128);
-            $table->string('password', 128)->nullable();
             $table->timestamps();
         });
     }

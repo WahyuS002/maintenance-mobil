@@ -49,3 +49,10 @@ Route::middleware('auth')->group(function () {
 Auth::routes();
 
 Route::get('/', 'HomeController@index')->name('home');
+
+Route::middleware('guest:driver')->prefix('driver')->group(function () {
+    Route::get('/login', 'Auth\DriverLoginController@showLoginForm')->name('driver.login');
+    Route::post('/login/submit', 'Auth\DriverLoginController@login')->name('driver.login.submit');
+});
+
+Route::get('/log', 'logController@index')->name('log');

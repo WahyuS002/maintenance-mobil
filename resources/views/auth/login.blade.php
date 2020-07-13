@@ -80,7 +80,7 @@
     </div>
     <div class="p-a-md box-color r box-shadow-z1 text-color m-a">
       <div class="m-b text-sm">
-        Sign in with your Flatkit Account
+        Admin Login
       </div>
       <form method="POST" action="{{ route('login') }}">
         @csrf
