@@ -46,11 +46,14 @@ Route::middleware('auth')->group(function () {
     Route::delete('/treatment/{treatment:id}/delete', 'TreatmentController@destroy');
 });
 
-Auth::routes();
+// Auth::routes(); Change to 
+Route::group(['prefix' => 'admin'], function () {
+    Auth::routes();
+});
 
 Route::get('/', 'HomeController@index')->name('home');
 
-Route::middleware('guest:driver')->prefix('driver')->group(function () {
+Route::middleware('guest:driver')->group(function () {
     Route::get('/login', 'Auth\DriverLoginController@showLoginForm')->name('driver.login');
     Route::post('/login', 'Auth\DriverLoginController@login')->name('driver.login.submit');
 });
