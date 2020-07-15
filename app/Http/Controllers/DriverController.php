@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Driver;
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\Hash;
+
 class DriverController extends Controller
 {
     /**
@@ -40,6 +42,8 @@ class DriverController extends Controller
         if ($request->hasFile('foto')) {
 
             $driver = $request->all();
+
+            $driver['password'] = Hash::make('qweasd');
 
             $nama_file = $request->foto->getClientOriginalName();
             $driver['foto'] = $request->foto->storeAs('foto', $nama_file, 'public');

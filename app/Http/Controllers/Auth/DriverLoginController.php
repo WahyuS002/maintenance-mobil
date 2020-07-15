@@ -30,4 +30,10 @@ class DriverLoginController extends Controller
         // jika gagal
         return redirect()->back()->withInput($request->only('nik', 'remember'));
     }
+
+    public function logout()
+    {
+        Auth::guard('driver')->logout();
+        return redirect('driver.login');
+    }
 }

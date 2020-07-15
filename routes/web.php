@@ -47,7 +47,7 @@ Route::middleware('auth')->group(function () {
 });
 
 // Auth::routes(); Change to 
-Route::middleware('guest:driver')->prefix('admin')->group(function () {
+Route::prefix('admin')->group(function () {
     Auth::routes();
 });
 

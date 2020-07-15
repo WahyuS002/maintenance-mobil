@@ -18,7 +18,7 @@ class CreateDriversTable extends Migration
             $table->string('nama', 64);
 
             $table->char('nik', 16)->unique();
-            $table->string('password')->nullable();
+            $table->string('password');
             $table->rememberToken();
 
             $table->string('foto', 128);

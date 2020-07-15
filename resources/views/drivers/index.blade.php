@@ -58,7 +58,7 @@
       <div class="modal-body">            
 
           <form action="/driver/store" method="POST" enctype="multipart/form-data">
-              @csrf               
+              @csrf                         
               <div class="form-group">
                   <label for="nama">Nama</label>
                   <input type="text" class="form-control" id="nama" name="nama">
