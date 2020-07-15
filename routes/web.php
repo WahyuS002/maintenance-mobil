@@ -47,7 +47,7 @@ Route::middleware('auth')->group(function () {
 });
 
 // Auth::routes(); Change to 
-Route::group(['prefix' => 'admin'], function () {
+Route::middleware('guest:driver')->prefix('admin')->group(function () {
     Auth::routes();
 });
 
@@ -59,5 +59,6 @@ Route::middleware('guest:driver')->group(function () {
 });
 
 Route::middleware('auth:driver')->group(function () {
-    Route::get('/log', 'logController@index')->name('log');
+    Route::get('/logs', 'logController@index')->name('log');
+    Route::get('/log-mobil', 'logController@mobil')->name('log.mobil');
 });

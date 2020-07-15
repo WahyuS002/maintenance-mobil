@@ -17,4 +17,9 @@ class Mobil extends Model
     {
         return $this->hasMany(Treatment::class);
     }
+
+    public function drivers()
+    {
+        return $this->belongsToMany(Driver::class);
+    }
 }

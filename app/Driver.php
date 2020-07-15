@@ -16,4 +16,9 @@ class Driver extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function mobils()
+    {
+        return $this->belongsToMany(Mobil::class);
+    }
 }
