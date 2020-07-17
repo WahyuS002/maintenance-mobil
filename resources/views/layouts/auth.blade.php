@@ -19,7 +19,7 @@
   @include('includes.style')
 </head>
 
-<body>
+<body class=" pace-done dark">
     
     @yield('content')
     

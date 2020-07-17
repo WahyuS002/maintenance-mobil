@@ -14,9 +14,14 @@ class CreateDriverMobilTable extends Migration
     public function up()
     {
         Schema::create('driver_mobil', function (Blueprint $table) {
+            $table->id();
+
             $table->integer('driver_id')->constrained('drivers');
             $table->integer('mobil_id')->constrained('mobils');
-            $table->primary(['driver_id', 'mobil_id']);
+
+            $table->string('laporan', 64);
+            $table->date('waktu');
+            $table->integer('biaya');
 
             $table->timestamps();
         });

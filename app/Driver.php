@@ -11,7 +11,7 @@ class Driver extends Authenticatable
 {
     use Notifiable;
 
-    protected $fillable = ['nama', 'nik', 'password', 'foto'];
+    protected $fillable = ['nama', 'nik', 'password', 'foto', 'role'];
 
     protected $hidden = [
         'password', 'remember_token',

@@ -21,6 +21,15 @@ class BrandController extends Controller
         return view('mobil.index', compact('mobils'));
     }
 
+    public function store(Request $request)
+    {
+        $brand = $request->all();
+
+        Brand::create($brand);
+
+        return redirect()->back();
+    }
+
     public function update(Request $request, Brand $brand)
     {
         $brand->nama_brand = $request->nama_brand;

@@ -85,7 +85,7 @@
             </div>
             <div class="form-group">
                 <label for="max_minyak">Kapasitas Minyak</label>
-                <input type="text" class="form-control" id="max_minyak" name="max_minyak">
+                <input type="number" class="form-control" id="max_minyak" name="max_minyak">
             </div>                
             <div class="form-group">
                 <label for="foto">Foto</label>
@@ -140,7 +140,7 @@
               </div>
               <div class="form-group">
                   <label for="max_minyak">Kapasitas Minyak</label>
-                  <input type="text" class="form-control" id="max_minyak" name="max_minyak" value="{{ $mobil->max_minyak }}">
+                  <input type="number" class="form-control" id="max_minyak" name="max_minyak" value="{{ $mobil->max_minyak }}">
               </div>                
               <div class="form-group">
                   <label for="foto">Foto</label>

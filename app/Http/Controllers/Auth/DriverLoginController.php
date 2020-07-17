@@ -24,7 +24,7 @@ class DriverLoginController extends Controller
         // percobaan login
         if (Auth::guard('driver')->attempt(['nik' => $request->nik, 'password' => $request->password], $request->remember)) {
             // jika berhasil
-            return redirect()->route('log');
+            return redirect()->route('log.create');
         }
 
         // jika gagal

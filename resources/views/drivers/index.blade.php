@@ -65,7 +65,7 @@
               </div>
               <div class="form-group">
                   <label for="nik">NIK</label>
-                  <input type="text" class="form-control" id="nik" name="nik">
+                  <input type="number" class="form-control" id="nik" name="nik">
               </div>
               <div class="form-group">
                   <label for="foto">Foto</label>
@@ -102,7 +102,7 @@
               </div>
               <div class="form-group">
                   <label for="nik">NIK</label>
-                  <input type="text" class="form-control" id="nik" name="nik" value="{{ $driver->nik }}">
+                  <input type="number" class="form-control" id="nik" name="nik" value="{{ $driver->nik }}">
               </div>
               <div class="form-group">
                   <label for="foto">Foto</label>

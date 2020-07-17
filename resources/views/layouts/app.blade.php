@@ -58,7 +58,7 @@
   
   @include('includes.style')
 </head>
-<body>
+<body class=" pace-done dark">
   <div class="app" id="app">
 
 <!-- ############ LAYOUT START-->

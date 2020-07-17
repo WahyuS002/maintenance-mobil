@@ -1776,6 +1776,13 @@ a.list-group-item.hover {
     width: 100%;
 }
 
+.avatar-circle img {
+    border-radius: 500px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 .avatar i {
     position: absolute;
     left: 0;
@@ -5074,6 +5081,10 @@ div.input-group>.select2-container>.selection {
     margin-bottom: 0.25rem !important;
 }
 
+.m-y-xxs {
+    margin-bottom: 0.25rem !important;
+}
+
 .p-a {
     padding: 1rem !important;
 }
@@ -7713,6 +7724,8 @@ fieldset[disabled] .md-switch input+i:after {
     -webkit-animation: fadeOutDown 0.5s;
     animation: fadeOutDown 0.5s;
 }
+
+/* MY STYLE */
 
 .fit-image {
     width: 100%;

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth')->group(function () {
     // ADMIN
-    Route::get('/admin', 'AdminController@index')->name('admin');
+    Route::get('/', 'AdminController@index')->name('admin.dashboard');
 
     // DRIVER
     Route::get('/driver', 'DriverController@index')->name('admin.driver');
@@ -32,6 +32,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/brand', 'BrandController@index')->name('brand');
     Route::get('/brand/{brand:nama_brand}', 'BrandController@show');
 
+    Route::post('/brand/store', 'BrandController@store');
+
     Route::patch('/brand/{brand:id}/update', 'BrandController@update');
 
     Route::delete('/brand/{brand:id}/delete', 'BrandController@destroy');
@@ -51,14 +53,15 @@ Route::prefix('admin')->group(function () {
     Auth::routes();
 });
 
-Route::get('/', 'HomeController@index')->name('home');
-
 Route::middleware('guest:driver')->group(function () {
     Route::get('/login', 'Auth\DriverLoginController@showLoginForm')->name('driver.login');
     Route::post('/login', 'Auth\DriverLoginController@login')->name('driver.login.submit');
 });
 
 Route::middleware('auth:driver')->group(function () {
-    Route::get('/logs', 'logController@index')->name('log');
-    Route::get('/log-mobil', 'logController@mobil')->name('log.mobil');
+    Route::get('/log', 'logController@index')->name('log');
+
+    Route::get('/log/create', 'logController@create')->name('log.create');
+    Route::post('/log/{mobil:id}/store', 'logController@store')->name('log.store');
+    // Route::patch('/mobil/{mobil:id}/update', 'MobilController@update');
 });
