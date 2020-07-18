@@ -1,6 +1,6 @@
-@php
+{{-- @php
   $brands = App\Brand::get();    
-@endphp
+@endphp --}}
 
 @extends('layouts.app')
 
@@ -36,6 +36,7 @@
   </div>
 </div>
 
+@foreach ($mobils as $mobil)
 <!-- TAMBAH LOG MODAL -->
 <div class="modal fade" id="tambahLogModal{{ $mobil->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -67,7 +68,7 @@
             </div>
             <div class="form-group">
                 <label for="no_plat">Treatment</label>
-                <input type="text" class="form-control" id="no_plat" name="no_plat" value="{{ $mobil->treatments[0]->jenis }}" disabled>
+                <input type="text" class="form-control" id="no_plat" name="no_plat" value="~ MASIH KOSONG ~" disabled>
             </div>               
             <div class="form-group">
                 <label for="laporan">Laporan</label>
@@ -92,6 +93,7 @@
     </div>
   </div>
 </div>
+@endforeach
     
 
 @stop

@@ -19,6 +19,6 @@ class Driver extends Authenticatable
 
     public function mobils()
     {
-        return $this->belongsToMany(Mobil::class);
+        return $this->belongsToMany(Mobil::class)->withPivot(['laporan', 'waktu', 'biaya', 'id', 'mobil_id']);
     }
 }

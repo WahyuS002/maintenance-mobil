@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Mobil;
+use App\Driver;
 use App\DriverMobil;
 
 use Illuminate\Http\Request;
@@ -13,15 +14,20 @@ class LogController extends Controller
 {
     public function index()
     {
-        return view('logs.index');
-        // return dd(Auth::user());
+        $driver_id = Auth::user()->id;
+
+        $drivers = Driver::find($driver_id);
+
+        return view('logs.index', [
+            'drivers' => $drivers,
+        ]);
     }
 
     public function create()
     {
         $mobils = Mobil::latest()->get();
 
-        return view('logs.mobil', compact('mobils'));
+        return view('logs.create', compact('mobils'));
     }
 
     public function store(Request $request, Mobil $mobil)
@@ -33,5 +39,25 @@ class LogController extends Controller
         DriverMobil::create($logs);
 
         return redirect()->back();
+    }
+
+    public function update(Request $request, DriverMobil $driverMobil)
+    {
+        $driverMobil->id = $request->id;
+        $driverMobil->mobil_id = $request->mobil_id;
+        $driverMobil->driver_id = Auth::user()->id;
+        $driverMobil->laporan = $request->laporan;
+        $driverMobil->waktu = $request->waktu;
+        $driverMobil->biaya = $request->biaya;
+
+
+        $driverMobil->save();
+
+        return redirect()->back();
+    }
+
+    public function destroy(DriverMobil $driver_mobil)
+    {
+        dd(DriverMobil::find($driver_mobil));
     }
 }
