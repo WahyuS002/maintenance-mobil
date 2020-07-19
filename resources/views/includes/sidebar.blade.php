@@ -68,7 +68,7 @@
                 <small class="text-muted">Administrator</small>
               </li>
               
-              <li class="{{ request()->is('admin') ? ' active' : '' }}">
+              <li class="{{ request()->is('/') ? ' active' : '' }}">
                 <a href="{{ route('admin.dashboard') }}" >
                   <span class="nav-icon">
                     <i class="fa fa-area-chart">
@@ -110,39 +110,22 @@
                   </span>
                   <span class="nav-text">Drivers</span>
                 </a>
-              </li>
+              </li> 
 
-              <li>
-                <a>
-                  <span class="nav-caret">
-                    <i class="fa fa-caret-down"></i>
-                  </span>
+              <li class="{{ request()->is('mobil') ? ' active' : '' }}">
+                <a href="{{ route('admin.mobil') }}" >
                   <span class="nav-icon">
                     <i class="fa fa-car">
-                      {{-- <span ui-include="'{{ asset('flatkit/assets/images/i_2.svg') }}'"></span> --}}
+                      {{-- <span ui-include="'{{ asset('flatkit/assets/images/i_3.svg') }}'"></span> --}}
                     </i>
                   </span>
                   <span class="nav-text">Mobil</span>
                 </a>
-                <ul class="nav-sub">
-                  <li>
-                    <a class="nav-link" href="{{ route('admin.mobil') }}">
-                      <span class="nav-text">Semua</span>
-                    </a>
-                  </li>
-                  @foreach ($brands as $brand)
-                    <li>
-                      <a href="/brand/{{ $brand->nama_brand }}">
-                        <span class="nav-text">{{ $brand->nama_brand }}</span>
-                      </a>
-                    </li>                  
-                  @endforeach
-                </ul>
-              </li>
+              </li>              
           
               <li class="nav-header hidden-folded">
                 <small class="text-muted">Profile</small>
-              </li>
+              </>
           
               <li>
                 <a href="widget.html" >

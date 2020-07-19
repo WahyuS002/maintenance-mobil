@@ -38,7 +38,7 @@ class LogController extends Controller
 
         DriverMobil::create($logs);
 
-        return redirect()->back();
+        return redirect()->route('log');
     }
 
     public function update(Request $request, DriverMobil $driverMobil)
@@ -58,6 +58,8 @@ class LogController extends Controller
 
     public function destroy(DriverMobil $driver_mobil)
     {
-        dd(DriverMobil::find($driver_mobil));
+        $driver_mobil->delete();
+
+        return redirect()->back();
     }
 }

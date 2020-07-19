@@ -19,8 +19,36 @@
         </div>
       </div>         
     </div>
-    <div class="row">      
-      <div class="col-md-9">
+    <div class="row">
+      <div class="col-md-3 push-md-9">
+        <div class="box">
+            <div class="box-header">Filter</div>
+            <div class="box-body">                
+                <ul class="list-unstyled m-t-n-sm">
+                  @foreach ($brands as $brand)
+                  <a href="/brand/{{ $brand->nama_brand }}">
+                    <li class="radio">
+                      <label class="ui-check">
+                          <input type="radio" name="filter" onclick="window.location='{{ $brand->nama_brand }}';"><i></i> {{ $brand->nama_brand }}
+                      </label>
+                    </li>
+                  </a> 
+                  @endforeach                    
+                    {{-- <li class="radio">
+                        <label class="ui-check">
+                            <input type="radio" name="filter"><i></i> Last Week
+                        </label>
+                    </li>
+                    <li class="radio">
+                        <label class="ui-check">
+                            <input type="radio" name="filter"><i></i> Last Month
+                        </label>
+                    </li> --}}
+                </ul>
+            </div>
+        </div>
+    </div>
+      <div class="col-md-9 pull-md-3">
         <div class="row">
           @foreach ($mobils as $mobil)
             <div class="col-xs-6 col-sm-4 col-md-3">
@@ -40,7 +68,7 @@
                 </div>
               </div>
             </div>        
-          @endforeach                                                                                        
+          @endforeach                                                                                              
         </div>
       </div>
     </div>

@@ -23,6 +23,8 @@ class CreateDriverMobilTable extends Migration
             $table->date('waktu');
             $table->integer('biaya');
 
+            // $table->primary(['driver_id', 'mobil_id']);
+
             $table->timestamps();
         });
     }

@@ -38,8 +38,8 @@
 	            </span>
 	          </div>
 	          <div class="clear">
-	            <div class="text-muted">Laporan</div>
-				<h4 class="m-0 text-md _600"><a href>2980</a></h4>
+	            <div class="text-muted">Treatment</div>
+				<h4 class="m-0 text-md _600"><a href>{{ $log_count }}</a></h4>
 	          </div>
 	        </div>
 	    </div>
@@ -100,7 +100,7 @@
 	    	<div class="box">
 				<div class="box-header">
 					<span class="label success pull-right">5</span>
-					<h3>Laporan</h3>
+					<h3>Treatment</h3>
 					<small>10 members update their activies.</small>
 				</div>
 				<div class="box-body">

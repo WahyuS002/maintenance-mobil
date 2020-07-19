@@ -17,9 +17,13 @@ class MobilController extends Controller
     public function index()
     {
         $mobils = Mobil::latest()->get();
-        $brands = Brand::latest()->get();
 
-        return view('mobil.index', ['mobils' => $mobils]);
+        $brands = Brand::all();
+
+        return view('mobil.index', [
+            'mobils' => $mobils,
+            'brands' => $brands
+        ]);
     }
 
     /**

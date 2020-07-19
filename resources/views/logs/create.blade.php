@@ -11,6 +11,7 @@
       <div class="row d-flex align-items-center">
         <div class="col-md-0">
           <h5 class="mb-0 _300">Mobil</h5>
+          <small class="text-muted">Klik salah satu mobil untuk menambahkan laporan</small>
         </div>
       </div>         
     </div>

@@ -4,8 +4,8 @@
 <div class="padding mt-5">
 <div class="box mt-3">
     <div class="box-header">
-      <h2>Responsive table</h2>
-      <small>Wrap the table in a div with .table-responsive class</small>
+      <h2>Data Laporan</h2>
+      <small>Lorem ipsum dolor sit amet consectetur.</small>
     </div>
     <div class="table-responsive">
       <table class="table table-bordered m-0">
