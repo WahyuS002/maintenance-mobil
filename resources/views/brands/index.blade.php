@@ -9,7 +9,7 @@
           <h2>Brand</h2>
         </div>
         <div class="align-self-center">
-          <a class="btn btn-sm btn-icon white" data-toggle="modal" data-target="#tambahModal">
+          <a href="mymodal" data-remote="{{ route('brands.create') }}" data-title="Detail Transaksi" class="btn btn-sm btn-icon white" data-toggle="modal" data-target="#mymodal" >
               <i class="fa fa-plus"></i>
           </a>                      
       </div>
@@ -44,7 +44,7 @@
 </div>
 
 <!-- Tambah Modal -->
-<div class="modal fade" id="tambahModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+{{-- <div class="modal fade" id="tambahModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content box-shadow-md black lt m-b">
       <div class="modal-header">
@@ -71,7 +71,7 @@
       </div>
     </div>
   </div>
-</div>
+</div> --}}
 
 <!-- EDIT MODAL -->
 @foreach ($brands as $brand)

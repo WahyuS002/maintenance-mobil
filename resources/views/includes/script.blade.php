@@ -13,6 +13,10 @@
 <!-- End custom js for this page--> --}}
 
 <!-- build:js scripts/app.html.js -->
+
+{{-- SCRIPTS --}}
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+
 <!-- jQuery -->
 <script src="{{ asset('flatkit/libs/jquery/jquery/dist/jquery.js') }}"></script>
 <!-- Bootstrap -->
@@ -42,3 +46,41 @@
   <script src="{{ asset('flatkit/libs/jquery/jquery-pjax/jquery.pjax.js') }}"></script>
   <script src="{{ asset('flatkit/html/scripts/ajax.js') }}"></script>
 <!-- endbuild -->
+
+  {{-- MY SCRIPT --}}
+
+    @if (count($errors) > 0)
+    <script>
+        $( function() {
+            $('#mymodal').modal('show');
+        });
+    </script>
+    @endif  
+  
+    <script>
+      jQuery(document).ready(function($){
+          $('#mymodal').on('show.bs.modal', function(e){
+              var button = $(e.relatedTarget);
+              var modal = $(this);
+  
+              modal.find('.modal-body').load(button.data("remote"));
+              modal.find('.modal-title').html(button.data("title"));
+          });
+      });
+    </script>
+
+  <div class="modal" id="mymodal" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+          <div class="modal-content box-shadow-md black lt m-b">
+              <div class="modal-header">
+                <h5 class="modal-title"></h5>
+                  <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                  </button>
+              </div>
+              <div class="modal-body">
+                  <i class="fa fa-spinner fa-spin"></i>
+              </div>
+          </div>
+      </div>
+  </div>

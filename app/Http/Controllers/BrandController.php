@@ -21,8 +21,17 @@ class BrandController extends Controller
         return view('mobil.index', compact('mobils'));
     }
 
+    public function create()
+    {
+        return view('brands.create');
+    }
+
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'nama_brand' => 'required'
+        ]);
+
         $brand = $request->all();
 
         Brand::create($brand);

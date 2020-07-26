@@ -32,6 +32,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/brand', 'BrandController@index')->name('brand');
     Route::get('/brand/{brand:nama_brand}', 'BrandController@show');
 
+    Route::get('/brands/create', 'BrandController@create')->name('brands.create');
     Route::post('/brand/store', 'BrandController@store');
 
     Route::patch('/brand/{brand:id}/update', 'BrandController@update');
