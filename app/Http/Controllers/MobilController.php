@@ -33,7 +33,9 @@ class MobilController extends Controller
      */
     public function create()
     {
-        return view('mobil.create');
+        $brands = Brand::get();
+
+        return view('mobils.create', compact('brands'));
     }
 
     /**
@@ -44,13 +46,13 @@ class MobilController extends Controller
      */
     public function store(Request $request)
     {
-        // $this->validate($request, [
-        //     'no_plat' => 'required',
-        //     'nama_mobil' => 'required',
-        //     'tipe_mobil' => 'required',
-        //     'max_minyak' => 'required',
-        //     'foto' => 'required'
-        // ]);
+        $this->validate($request, [
+            'no_plat' => 'required',
+            'nama_mobil' => 'required',
+            'tipe_mobil' => 'required',
+            'max_minyak' => 'required',
+            'foto' => 'required'
+        ]);
 
         if ($request->hasFile('foto')) {
             $mobil = $request->all();
@@ -61,7 +63,7 @@ class MobilController extends Controller
             Mobil::Create($mobil);
         }
 
-        return redirect()->back();
+        return response()->json(true);
     }
 
     /**

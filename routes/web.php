@@ -9,7 +9,7 @@ Route::middleware('auth')->group(function () {
     // DRIVER
     Route::get('/driver', 'DriverController@index')->name('admin.driver');
 
-    Route::get('/driver/create', 'DriverController@create');
+    Route::get('/driver/create', 'DriverController@create')->name('driver.create');
     Route::post('/driver/store', 'DriverController@store');
 
     Route::delete('/driver/{driver:id}/delete', 'DriverController@destroy');
@@ -20,7 +20,7 @@ Route::middleware('auth')->group(function () {
     // MOBIL
     Route::get('/mobil', 'MobilController@index')->name('admin.mobil');
 
-    Route::get('/mobil/create', 'MobilController@create');
+    Route::get('/mobil/create', 'MobilController@create')->name('mobil.create');
     Route::post('/mobil/store', 'MobilController@store');
 
     Route::get('/mobil/{mobil:id}/edit', 'MobilController@edit');
@@ -32,7 +32,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/brand', 'BrandController@index')->name('brand');
     Route::get('/brand/{brand:nama_brand}', 'BrandController@show');
 
-    Route::get('/brands/create', 'BrandController@create')->name('brands.create');
+    Route::get('/brands/create', 'BrandController@create')->name('brand.create');
     Route::post('/brand/store', 'BrandController@store');
 
     Route::patch('/brand/{brand:id}/update', 'BrandController@update');
@@ -42,6 +42,7 @@ Route::middleware('auth')->group(function () {
     // TREATMENT
     Route::get('/treatment', 'TreatmentController@index')->name('treatment');
 
+    Route::get('/treatment/create', 'TreatmentController@create')->name('treatment.create');
     Route::post('/treatment/store', 'TreatmentController@store')->name('treatment.store');
 
     Route::patch('/treatment/{treatment:id}/update', 'TreatmentController@update')->name('treatment.update');
@@ -68,4 +69,6 @@ Route::middleware('auth:driver')->group(function () {
     Route::patch('/log/{driver_mobil:id}/update', 'logController@update')->name('log.update');
 
     Route::delete('/log/{driver_mobil:id}/delete', 'logController@destroy')->name('log.destroy');
+
+    Route::get('/myprofile', 'ProfileController@index')->name('profile');
 });

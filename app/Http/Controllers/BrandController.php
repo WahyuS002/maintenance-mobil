@@ -28,6 +28,7 @@ class BrandController extends Controller
 
     public function store(Request $request)
     {
+
         $this->validate($request, [
             'nama_brand' => 'required'
         ]);
@@ -36,7 +37,8 @@ class BrandController extends Controller
 
         Brand::create($brand);
 
-        return redirect()->back();
+        // return redirect()->back();
+        return response()->json(true);
     }
 
     public function update(Request $request, Brand $brand)

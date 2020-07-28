@@ -9,7 +9,7 @@
           <h2>Brand</h2>
         </div>
         <div class="align-self-center">
-          <a href="mymodal" data-remote="{{ route('brands.create') }}" data-title="Detail Transaksi" class="btn btn-sm btn-icon white" data-toggle="modal" data-target="#mymodal" >
+          <a href="mymodal" data-remote="{{ route('brand.create') }}" data-title="Detail Transaksi" class="btn btn-sm btn-icon white" data-toggle="modal" data-target="#mymodal" >
               <i class="fa fa-plus"></i>
           </a>                      
       </div>
@@ -42,36 +42,6 @@
     </table>
   </div>
 </div>
-
-<!-- Tambah Modal -->
-{{-- <div class="modal fade" id="tambahModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content box-shadow-md black lt m-b">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Tambah Brand Mobil</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">            
-
-        <form action="/brand/store" method="POST">
-            @csrf                  
-            <div class="form-group">
-                <label for="nama_brand">Nama Brand</label>
-                <input type="text" class="form-control" id="nama_brand" name="nama_brand">                  
-            </div>                           
-            <hr>            
-              <div class="d-flex bd-highlight mb-3">
-                <button type="button" class="btn btn-sm btn-secondary p-2 bd-highlight mr-2" data-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-sm btn-primary p-2 bd-highlight">Tambah</button>
-              </div>            
-        </form>
-
-      </div>
-    </div>
-  </div>
-</div> --}}
 
 <!-- EDIT MODAL -->
 @foreach ($brands as $brand)

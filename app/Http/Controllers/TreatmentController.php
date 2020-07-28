@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Treatment;
+use App\Mobil;
+
 use Illuminate\Http\Request;
 
 class TreatmentController extends Controller
@@ -15,11 +17,25 @@ class TreatmentController extends Controller
         return view('treatments.index', compact('treatments'));
     }
 
+    public function create()
+    {
+        $mobils = Mobil::get();
+
+        return view('treatments.create', compact('mobils'));
+    }
+
     public function store(Request $request)
     {
+        $this->validate($request, [
+            'mobil_id' => 'required',
+            'jenis' => 'required',
+            'waktu' => 'required',
+        ]);
+
         Treatment::create($request->all());
 
-        return redirect()->back();
+        // return redirect()->back();
+        return response()->json(true);
     }
 
     public function update(Request $request, Treatment $treatment)

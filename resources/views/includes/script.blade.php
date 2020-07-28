@@ -36,7 +36,7 @@
   <script src="{{ asset('flatkit/html/scripts/ui-device.js') }}"></script>
   <script src="{{ asset('flatkit/html/scripts/ui-form.js') }}"></script>
   <script src="{{ asset('flatkit/html/scripts/ui-nav.js') }}"></script>
-  <script src="{{ asset('flatkit/html/scripts/ui-screenfull.js') }}"></script>
+  {{-- <script src="{{ asset('flatkit/html/scripts/ui-screenfull.js') }}"></script> --}}
   <script src="{{ asset('flatkit/html/scripts/ui-scroll-to.js') }}"></script>
   <script src="{{ asset('flatkit/html/scripts/ui-toggle-class.js') }}"></script>
 
@@ -45,18 +45,10 @@
   <!-- ajax -->
   <script src="{{ asset('flatkit/libs/jquery/jquery-pjax/jquery.pjax.js') }}"></script>
   <script src="{{ asset('flatkit/html/scripts/ajax.js') }}"></script>
+  <script src="{{ asset('js/jquery.form.min.js')}}"></script>
 <!-- endbuild -->
 
   {{-- MY SCRIPT --}}
-
-    @if (count($errors) > 0)
-    <script>
-        $( function() {
-            $('#mymodal').modal('show');
-        });
-    </script>
-    @endif  
-  
     <script>
       jQuery(document).ready(function($){
           $('#mymodal').on('show.bs.modal', function(e){
@@ -67,6 +59,29 @@
               modal.find('.modal-title').html(button.data("title"));
           });
       });
+    </script>
+
+    {{-- Showing Error Script --}}
+    <script>
+      function kirimData(){
+        $("#error-form-create").html('')
+        $("#form-create").ajaxSubmit({
+          success:function(res){
+            window.location.reload()        
+          },
+          error:function(e1,e2){              
+            let errors = e1.responseJSON.errors;
+            let tampilan = '<ul>';
+            for(let error_key1 in errors){
+              for(let error_key2 in errors[error_key1]){            
+                tampilan+=`<li>${errors[error_key1][error_key2]}</li>`            
+              }
+            }
+            tampilan+='</ul>';
+            $("#error-form-create").append(tampilan)
+          }
+        })
+      }
     </script>
 
   <div class="modal" id="mymodal" tabindex="-1" role="dialog">

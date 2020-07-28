@@ -10,7 +10,7 @@
           <h5 class="mb-0 _300">Drivers</h5>
         </div>
         <div class="col-md-0">
-          <a class="btn btn-sm btn-icon white" data-toggle="modal" data-target="#tambahModal">
+          <a class="btn btn-sm btn-icon white" data-remote="{{ route('driver.create') }}" data-title="Detail Transaksi" data-toggle="modal" data-target="#mymodal">
             <i class="fa fa-plus"></i>
           </a>
         </div>
@@ -40,42 +40,6 @@
             </div>        
           @endforeach
         </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- Tambah Modal -->
-<div class="modal fade" id="tambahModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content box-shadow-md black lt m-b">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Tambah Data Driver</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">            
-
-          <form action="/driver/store" method="POST" enctype="multipart/form-data">
-              @csrf                         
-              <div class="form-group">
-                  <label for="nama">Nama</label>
-                  <input type="text" class="form-control" id="nama" name="nama">
-              </div>
-              <div class="form-group">
-                  <label for="nik">NIK</label>
-                  <input type="number" class="form-control" id="nik" name="nik">
-              </div>
-              <div class="form-group">
-                  <label for="foto">Foto</label>
-                  <input type="file" class="form-control" id="foto" name="foto">
-              </div>                
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary">Tambah</button>
-              </div>
-          </form>
       </div>
     </div>
   </div>

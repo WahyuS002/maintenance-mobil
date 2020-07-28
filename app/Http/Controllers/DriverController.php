@@ -39,6 +39,12 @@ class DriverController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request, [
+            "nama" => "required",
+            "nik" => "required",
+            "foto" => "required"
+        ]);
+
         if ($request->hasFile('foto')) {
 
             $driver = $request->all();

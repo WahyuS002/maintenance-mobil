@@ -69,7 +69,7 @@
               </li>
               
               <li class="{{ request()->is('/') ? ' active' : '' }}">
-                <a href="{{ route('admin.dashboard') }}" >
+                <a href="{{ route('admin.dashboard') }}">
                   <span class="nav-icon">
                     <i class="fa fa-area-chart">
                       {{-- <span ui-include="'{{ asset('flatkit/assets/images/i_0.svg') }}'"></span> --}}
@@ -80,7 +80,7 @@
               </li>                                 
 
               <li class="{{ request()->is('brand') ? ' active' : '' }}">
-                <a href="{{ route('brand') }}" >
+                <a href="{{ route('brand') }}">
                   <span class="nav-icon">
                     <i class="fa fa-adn">
                       {{-- <span ui-include="'{{ asset('flatkit/assets/images/i_0.svg') }}'"></span> --}}
@@ -88,21 +88,10 @@
                   </span>
                   <span class="nav-text">Brand</span>
                 </a>
-              </li>                                 
+              </li>
               
-              <li class="{{ request()->is('treatment') ? ' active' : '' }}">
-                <a href="{{ route('treatment') }}" >
-                  <span class="nav-icon">
-                    <i class="fa fa-plus-square">
-                      {{-- <span ui-include="'{{ asset('flatkit/assets/images/i_0.svg') }}'"></span> --}}
-                    </i>
-                  </span>
-                  <span class="nav-text">Treatment</span>
-                </a>
-              </li>                                 
-          
               <li class="{{ request()->is('driver') ? ' active' : '' }}">
-                <a href="{{ route('admin.driver') }}" >
+                <a href="{{ route('admin.driver') }}">
                   <span class="nav-icon">
                     <i class="fa fa-group">
                       {{-- <span ui-include="'{{ asset('flatkit/assets/images/i_3.svg') }}'"></span> --}}
@@ -111,9 +100,20 @@
                   <span class="nav-text">Drivers</span>
                 </a>
               </li> 
+              
+              <li class="{{ request()->is('treatment') ? ' active' : '' }}">
+                <a href="{{ route('treatment') }}">
+                  <span class="nav-icon">
+                    <i class="fa fa-plus-square">
+                      {{-- <span ui-include="'{{ asset('flatkit/assets/images/i_0.svg') }}'"></span> --}}
+                    </i>
+                  </span>
+                  <span class="nav-text">Treatment</span>
+                </a>
+              </li>                                                         
 
               <li class="{{ request()->is('mobil') ? ' active' : '' }}">
-                <a href="{{ route('admin.mobil') }}" >
+                <a href="{{ route('admin.mobil') }}">
                   <span class="nav-icon">
                     <i class="fa fa-car">
                       {{-- <span ui-include="'{{ asset('flatkit/assets/images/i_3.svg') }}'"></span> --}}
@@ -121,7 +121,7 @@
                   </span>
                   <span class="nav-text">Mobil</span>
                 </a>
-              </li>              
+              </li>               
           
               <li class="nav-header hidden-folded">
                 <small class="text-muted">Profile</small>
@@ -169,7 +169,7 @@
             </li>
         
             <li>
-              <a href="widget.html" >
+              <a href="{{ route('profile') }}" >
                 <span class="nav-icon">
                   <i class="fa fa-user">
                     {{-- <span ui-include="'{{ asset('flatkit/assets/images/i_3.svg') }}'"></span> --}}
