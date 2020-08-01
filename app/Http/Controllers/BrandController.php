@@ -11,14 +11,18 @@ class BrandController extends Controller
     {
         $brands = Brand::all();
 
-        return view('brands.index', compact("brands"));
+        return view('brands.index', compact('brands'));
     }
 
     public function show(Brand $brand)
     {
         $mobils = $brand->mobils()->latest()->get();
+        $brands = Brand::get();
 
-        return view('mobil.index', compact('mobils'));
+        return view('mobil.index', [
+            'brands' => $brands,
+            'mobils' => $mobils
+        ]);
     }
 
     public function create()

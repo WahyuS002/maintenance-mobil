@@ -14,10 +14,7 @@
     </div>        
     <div class="form-group">
         <label for="no_plat">Nomor Plat</label>
-        <input type="text" class="form-control" id="no_plat" name="no_plat">
-        {{-- @error('no_plat')
-          <div class="text-danger mt-2">{{ $message }}</div>
-        @enderror --}}
+        <input type="text" class="form-control" id="no_plat" name="no_plat">       
     </div>
     <div class="form-group">
         <label for="nama_mobil">Mobil</label>
@@ -33,7 +30,7 @@
     </div>                
     <hr>            
       <div class="d-flex bd-highlight mb-3">
-        <button type="submit" class="mr-auto p-2 bd-highlight float-right btn btn-sm btn-fw black">Tambah Brand</button>
+        <a href="{{ route('brand') }}" type="submit" class="mr-auto p-2 bd-highlight float-right btn btn-sm btn-fw black">Tambah Brand</a>
         <button type="button" class="btn btn-sm btn-secondary p-2 bd-highlight mr-2" data-dismiss="modal">Close</button>
         <button type="button" onclick="kirimData()" class="btn btn-sm btn-primary p-2 bd-highlight">Tambah</button>
       </div>            

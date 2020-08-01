@@ -35,7 +35,7 @@ class MobilController extends Controller
     {
         $brands = Brand::get();
 
-        return view('mobils.create', compact('brands'));
+        return view('mobil.create', compact('brands'));
     }
 
     /**
@@ -49,7 +49,6 @@ class MobilController extends Controller
         $this->validate($request, [
             'no_plat' => 'required',
             'nama_mobil' => 'required',
-            'tipe_mobil' => 'required',
             'max_minyak' => 'required',
             'foto' => 'required'
         ]);

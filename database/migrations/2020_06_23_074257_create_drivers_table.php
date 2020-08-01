@@ -20,6 +20,10 @@ class CreateDriversTable extends Migration
             $table->char('nik', 16)->unique();
             $table->string('role', 10)->nullable();
             $table->string('password');
+            $table->string('alamat', 32)->nullable();
+            $table->integer('no_hp')->nullable();
+            $table->enum('jk', ['p', 'l'])->nullable();
+
             $table->rememberToken();
 
             $table->string('foto', 128);

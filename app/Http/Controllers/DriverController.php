@@ -49,7 +49,7 @@ class DriverController extends Controller
 
             $driver = $request->all();
 
-            $driver['role'] = 'driver';
+            $driver['role'] = 'Driver';
             $driver['password'] = Hash::make('qweasd');
 
             $nama_file = $request->foto->getClientOriginalName();

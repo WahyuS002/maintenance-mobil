@@ -43,37 +43,31 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content box-shadow-md black lt m-b">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Tambah Data Mobil</h5>
+        <h5 class="modal-title" id="exampleModalLabel">{{ $mobil->nama_mobil }}<small class="text-sm text-muted"> ({{ $mobil->no_plat }})</small></h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">            
 
-        <form action="/log/{{ $mobil->id }}/store" method="POST" enctype="multipart/form-data">
-            @csrf                       
-            <div class="form-group">
+        <form action="/log/{{ $mobil->id }}/store" method="POST" id="form-create">
+            @csrf                  
+            <div class="error-form-create"></div>     
+            {{-- <div class="form-group">
                 <label for="nama_brand">Brand</label>
-                <input type="text" class="form-control" id="nama_brand" name="nama_brand" value="{{ $mobil->brand->nama_brand }}" disabled>
-                {{-- @error('no_plat')
-                  <div class="text-danger mt-2">{{ $message }}</div>
-                @enderror --}}
-            </div>
-            <div class="form-group">
-                <label for="nama_mobil">Mobil</label>
-                <input type="text" class="form-control" id="nama_mobil" name="nama_mobil" value="{{ $mobil->nama_mobil }}" disabled>
-            </div>
-            <div class="form-group">
-                <label for="no_plat">No Plat</label>
-                <input type="text" class="form-control" id="no_plat" name="no_plat" value="{{ $mobil->no_plat }}" disabled>
-            </div>
+                <input type="text" class="form-control" id="nama_brand" name="nama_brand" value="{{ $mobil->brand->nama_brand }}" disabled>              
+            </div> --}}            
             <div class="form-group">
                 <label for="no_plat">Treatment</label>
                 <input type="text" class="form-control" id="no_plat" name="no_plat" value="~ MASIH KOSONG ~" disabled>
             </div>               
-            <div class="form-group">
+            {{-- <div class="form-group">
                 <label for="laporan">Laporan</label>
                 <input type="text" class="form-control" id="laporan" name="laporan">
+            </div> --}}
+            <div class="form-group">
+              <label for="laporan">Laporan</label>
+              <textarea class="form-control" id="laporan" name="laporan" rows="2"></textarea>
             </div> 
             <div class="form-group">
               <label for="waktu">Waktu</label>
@@ -81,12 +75,12 @@
             </div>               
             <div class="form-group">
               <label for="biaya">Biaya</label>
-              <input type="number" class="form-control" id="biaya" name="biaya">
+              <input type="number" class="form-control quantity" id="biaya" name="biaya" min="1000" max="1000000" maxlength="7">
             </div>               
             <hr>            
               <div class="d-flex bd-highlight mb-3">
                 <button type="button" class="btn btn-sm btn-secondary p-2 bd-highlight mr-2" data-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-sm btn-primary p-2 bd-highlight">Tambah</button>
+                <button type="button" onclick="kirimData()" class="btn btn-sm btn-primary p-2 bd-highlight">Tambah</button>
               </div>            
         </form>
 
@@ -95,6 +89,31 @@
   </div>
 </div>
 @endforeach
-    
+
+<script>
+      var inputQuantity = [];
+    $(function() {
+      $(".quantity").each(function(i) {
+        inputQuantity[i]=this.defaultValue;
+         $(this).data("idx",i); // save this field's index to access later
+      });
+      $(".quantity").on("keyup", function (e) {
+        var $field = $(this),
+            val=this.value,
+            $thisIndex=parseInt($field.data("idx"),10); // retrieve the index
+//        window.console && console.log($field.is(":invalid"));
+          //  $field.is(":invalid") is for Safari, it must be the last to not error in IE8
+        if (this.validity && this.validity.badInput || isNaN(val) || $field.is(":invalid") ) {
+            this.value = inputQuantity[$thisIndex];
+            return;
+        } 
+        if (val.length > Number($field.attr("maxlength"))) {
+          val=val.slice(0, 5);
+          $field.val(val);
+        }
+        inputQuantity[$thisIndex]=val;
+      });      
+    });
+</script>
 
 @stop

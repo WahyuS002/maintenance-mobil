@@ -65,10 +65,18 @@ Route::middleware('auth:driver')->group(function () {
 
     Route::get('/log/create', 'logController@create')->name('log.create');
     Route::post('/log/{mobil:id}/store', 'logController@store')->name('log.store');
-    // Route::patch('/mobil/{mobil:id}/update', 'MobilController@update');
+
     Route::patch('/log/{driver_mobil:id}/update', 'logController@update')->name('log.update');
 
     Route::delete('/log/{driver_mobil:id}/delete', 'logController@destroy')->name('log.destroy');
 
     Route::get('/myprofile', 'ProfileController@index')->name('profile');
+
+    // SETTINGS
+    Route::get('/settings', 'SettingController@index')->name('settings');
+
+    Route::patch('/setting/update', 'SettingController@update')->name('setting.update');
+
+    Route::get('/setting/change-password', 'SettingController@passwordForm')->name('setting.change-password');
+    Route::patch('/setting/password', 'SettingController@password')->name('setting.password');
 });

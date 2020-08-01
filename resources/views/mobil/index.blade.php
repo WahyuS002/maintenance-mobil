@@ -9,7 +9,7 @@
           <h5 class="mb-0 _300">Mobil</h5>
         </div>
         <div class="col-md-0">
-          <a class="btn btn-sm btn-icon white" data-remote="{{ route('mobil.create') }}" data-title="Detail Transaksi" data-toggle="modal" data-target="#mymodal">
+          <a class="btn btn-sm btn-icon white" data-remote="{{ route('mobil.create') }}" data-title="Tambah Mobil" data-toggle="modal" data-target="#mymodal">
             <i class="fa fa-plus"></i>
           </a>
         </div>
@@ -29,17 +29,7 @@
                       </label>
                     </li>
                   </a> 
-                  @endforeach                    
-                    {{-- <li class="radio">
-                        <label class="ui-check">
-                            <input type="radio" name="filter"><i></i> Last Week
-                        </label>
-                    </li>
-                    <li class="radio">
-                        <label class="ui-check">
-                            <input type="radio" name="filter"><i></i> Last Month
-                        </label>
-                    </li> --}}
+                  @endforeach                  
                 </ul>
             </div>
         </div>

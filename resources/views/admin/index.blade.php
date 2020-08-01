@@ -105,33 +105,17 @@
 				</div>
 				<div class="box-body">
 				  	<div class="streamline b-l m-b m-l">
+						@foreach ($treatments as $treatment)
 		              <div class="sl-item">
-		                <div class="sl-left">
+						<div class="sl-left">
 							<img src="{{ asset('flatkit/assets/images/a2.jpg') }}" class="img-circle">
 		                </div>
 		                <div class="sl-content">
-		                  <a href class="text-info">Louis Elliott</a><span class="m-l-sm sl-date">5 min ago</span>
-		                  <div>assign you a task <a href class="text-info">Mockup Design</a>.</div>
-		                </div>
-		              </div>
-		              <div class="sl-item">
-		                <div class="sl-left">
-		                  <img src="{{ asset('flatkit/assets/images/a5.jpg') }}" class="img-circle">
-		                </div>
-		                <div class="sl-content">
-		                  <a href class="text-info">Terry Moore</a><span class="m-l-sm sl-date">10 min ago</span>
-		                  <div>Follow up to close deal</div>
-		                </div>
-		              </div>
-		              <div class="sl-item">
-		                <div class="sl-left">
-		                  <img src="{{ asset('flatkit/assets/images/a8.jpg') }}" class="img-circle">
-		                </div>
-		                <div class="sl-content">
-		                  <a href class="text-info">Walter Paler</a><span class="m-l-sm sl-date">1 hour ago</span>
-		                  <div>was added to Repo</div>
-		                </div>
-		              </div>
+							<a href class="text-info">Louis Elliott</a><span class="m-l-sm sl-date">5 min ago</span>
+							<div>{{ $treatment->laporan }} <small class="text-muted">Rp. {{ $treatment->biaya }}</small>.</div>
+							</div>
+						</div>		              
+						@endforeach
 		            </div>
 		            <a href class="btn btn-sm white text-u-c m-y-xs">Load More</a>
 		  		</div>

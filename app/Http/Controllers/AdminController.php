@@ -18,6 +18,8 @@ class AdminController extends Controller
 
         $mobils = Mobil::latest()->take(6)->get();
         $drivers = Driver::latest()->take(5)->get();
+
+        $treatments = DriverMobil::latest()->take(5)->get();
         // $log_count = App\Driver::all()->count;
 
         return view('admin.index', [
@@ -25,7 +27,8 @@ class AdminController extends Controller
             'driver_count' => $driver_count,
             'log_count' => $log_count,
             'mobils' => $mobils,
-            'drivers' => $drivers
+            'drivers' => $drivers,
+            'treatments' => $treatments
         ]);
     }
 }

@@ -20,7 +20,7 @@ class CreateDriverMobilTable extends Migration
             $table->integer('mobil_id')->constrained('mobils');
 
             $table->string('laporan', 64);
-            $table->date('waktu');
+            $table->timestamp('waktu');
             $table->integer('biaya');
 
             // $table->primary(['driver_id', 'mobil_id']);

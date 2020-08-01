@@ -13,8 +13,12 @@ class TreatmentController extends Controller
     public function index()
     {
         $treatments = Treatment::all();
+        $mobils = Mobil::get();
 
-        return view('treatments.index', compact('treatments'));
+        return view('treatments.index', [
+            'treatments' => $treatments,
+            'mobils' => $mobils
+        ]);
     }
 
     public function create()
