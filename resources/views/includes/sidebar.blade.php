@@ -56,7 +56,7 @@
         <a class="navbar-brand">
         	<div ui-include="'{{ asset('flatkit/assets/images/logo.svg') }}'"></div>
         	<img src="{{ asset('flatkit/assets/images/logo.png') }}" alt="." class="hide">
-        	<span class="hidden-folded inline">Flatkit</span>
+        	<span class="hidden-folded inline">Bank Indonesia</span>
         </a>
         <!-- / brand -->
       </div>
