@@ -10,7 +10,7 @@
           <h5 class="mb-0 _300">Drivers</h5>
         </div>
         <div class="col-md-0">
-          <a class="btn btn-sm btn-icon white" data-remote="{{ route('driver.create') }}" data-title="Detail Transaksi" data-toggle="modal" data-target="#mymodal">
+          <a class="btn btn-sm btn-icon white" data-remote="{{ route('driver.create') }}" data-title="Tambah Driver" data-toggle="modal" data-target="#mymodal">
             <i class="fa fa-plus"></i>
           </a>
         </div>

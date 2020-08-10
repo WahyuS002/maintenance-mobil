@@ -47,6 +47,7 @@ class MobilController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
+            'brand_id' => 'required',
             'no_plat' => 'required',
             'nama_mobil' => 'required',
             'max_minyak' => 'required',

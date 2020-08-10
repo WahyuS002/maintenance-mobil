@@ -108,10 +108,10 @@
 						@foreach ($treatments as $treatment)
 		              <div class="sl-item">
 						<div class="sl-left">
-							<img src="{{ asset('flatkit/assets/images/a2.jpg') }}" class="img-circle">
+							<img src="{{ url('storage/'. $treatment->foto) }}" class="img-circle">
 		                </div>
 		                <div class="sl-content">
-							<a href class="text-info">Louis Elliott</a><span class="m-l-sm sl-date">5 min ago</span>
+							<a href class="text-info">{{ $treatment->nama }}</a><span class="m-l-sm sl-date">{{ $treatment->created_at->diffForHumans() }}</span>
 							<div>{{ $treatment->laporan }} <small class="text-muted">Rp. {{ $treatment->biaya }}</small>.</div>
 							</div>
 						</div>		              

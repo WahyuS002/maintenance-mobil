@@ -55,6 +55,7 @@
           },
           error:function(e1,e2){              
             let errors = e1.responseJSON.errors;
+            // console.log(errors);
             let tampilan = '<ul>';
             for(let error_key1 in errors){
               for(let error_key2 in errors[error_key1]){            

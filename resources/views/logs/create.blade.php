@@ -1,7 +1,3 @@
-{{-- @php
-  $brands = App\Brand::get();    
-@endphp --}}
-
 @extends('layouts.app')
 
 @section('content')
@@ -39,11 +35,7 @@
 
         <form action="/log/{{ $mobil->id }}/store" method="POST" id="form-create">
             @csrf                  
-            <div class="error-form-create"></div>     
-            {{-- <div class="form-group">
-                <label for="nama_brand">Brand</label>
-                <input type="text" class="form-control" id="nama_brand" name="nama_brand" value="{{ $mobil->brand->nama_brand }}" disabled>              
-            </div> --}}            
+            <div class="error-form-create"></div>                       
             <div class="form-group">
                 <label for="no_plat">Treatment</label>
                 <input type="text" class="form-control" id="no_plat" name="no_plat" value="~ MASIH KOSONG ~" disabled>

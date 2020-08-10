@@ -19,8 +19,10 @@ class AdminController extends Controller
         $mobils = Mobil::latest()->take(6)->get();
         $drivers = Driver::latest()->take(5)->get();
 
-        $treatments = DriverMobil::latest()->take(5)->get();
-        // $log_count = App\Driver::all()->count;
+        // $treatments = DriverMobil::latest()->take(5)->get();
+
+        $treatments = DriverMobil::join('drivers', 'drivers.id', '=', 'driver_mobil.driver_id')
+            ->latest('driver_mobil.created_at')->take(5)->get();
 
         return view('admin.index', [
             'mobil_count' => $mobil_count,

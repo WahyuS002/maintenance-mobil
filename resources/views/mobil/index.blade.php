@@ -89,7 +89,7 @@
               </div>               
               <div class="form-group">
                   <label for="no_plat">Nomor Plat</label>
-                  <input type="text" class="form-control" id="no_plat" name="no_plat" value="{{ $mobil->no_plat }}">
+                  <input type="text" class="form-control" id="no_plat" name="no_plat" value="{{ $mobil->no_plat }}">                  
               </div>
               <div class="form-group">
                   <label for="nama_mobil">Mobil</label>
@@ -136,6 +136,4 @@
   </div>
 </form>
 @endforeach
-{{-- /DELETE MODAL --}}
-
 @stop
