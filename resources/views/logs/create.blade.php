@@ -35,26 +35,24 @@
 
         <form action="/log/{{ $mobil->id }}/store" method="POST" id="form-create">
             @csrf                  
-            <div class="error-form-create"></div>                       
             <div class="form-group">
                 <label for="no_plat">Treatment</label>
                 <input type="text" class="form-control" id="no_plat" name="no_plat" value="~ MASIH KOSONG ~" disabled>
-            </div>               
-            {{-- <div class="form-group">
-                <label for="laporan">Laporan</label>
-                <input type="text" class="form-control" id="laporan" name="laporan">
-            </div> --}}
+            </div>         
             <div class="form-group">
               <label for="laporan">Laporan</label>
               <textarea class="form-control" id="laporan" name="laporan" rows="2"></textarea>
-            </div> 
+              <div class="text-danger mt-2" id="error-laporan"></div> 
+            </div>
             <div class="form-group">
               <label for="waktu">Waktu</label>
               <input type="date" class="form-control" id="waktu" name="waktu">
+              <div class="text-danger mt-2" id="error-waktu"></div>
             </div>               
             <div class="form-group">
               <label for="biaya">Biaya</label>
               <input type="number" class="form-control quantity" id="biaya" name="biaya" min="1000" max="1000000" maxlength="7">
+              <div class="text-danger mt-2" id="error-biaya"></div>
             </div>               
             <hr>            
               <div class="d-flex bd-highlight mb-3">
@@ -68,36 +66,30 @@
   </div>
 </div>
 @endforeach
-
-<script>
-      var inputQuantity = [];
-    $(function() {
-      $(".quantity").each(function(i) {
-        inputQuantity[i]=this.defaultValue;
-         $(this).data("idx",i); // save this field's index to access later
-      });
-      $(".quantity").on("keyup", function (e) {
-        var $field = $(this),
-            val=this.value,
-            $thisIndex=parseInt($field.data("idx"),10); // retrieve the index
-//        window.console && console.log($field.is(":invalid"));
-          //  $field.is(":invalid") is for Safari, it must be the last to not error in IE8
-        if (this.validity && this.validity.badInput || isNaN(val) || $field.is(":invalid") ) {
-            this.value = inputQuantity[$thisIndex];
-            return;
-        } 
-        if (val.length > Number($field.attr("maxlength"))) {
-          val=val.slice(0, 5);
-          $field.val(val);
-        }
-        inputQuantity[$thisIndex]=val;
-      });      
-    });
-</script>
-
 @stop
 
 @section('js')
+
+  <script>
+    function kirimData(){
+      $("#error-laporan").html('')
+      $("#error-waktu").html('')
+      $("#error-biaya").html('')
+      $("#form-create").ajaxSubmit({
+      success:function(res){
+          window.location.reload()        
+      },
+      error:function(e1,e2){              
+          let laporan = e1.responseJSON.errors.laporan;        
+          let biaya = e1.responseJSON.errors.biaya;        
+          let waktu = e1.responseJSON.errors.waktu;        
+          $("#error-laporan").append(laporan)
+          $("#error-waktu").append(waktu)
+          $("#error-biaya").append(biaya)
+      }
+      })
+    }
+  </script>
 
   <script>
     function myFunction(){
