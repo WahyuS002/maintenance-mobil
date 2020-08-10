@@ -66,6 +66,9 @@ Route::middleware('auth:driver')->group(function () {
     Route::get('/log/create', 'logController@create')->name('log.create');
     Route::post('/log/{mobil:id}/store', 'logController@store')->name('log.store');
 
+    // FINDME
+    Route::post('/findMe', 'logController@findMe');
+
     Route::patch('/log/{driver_mobil:id}/update', 'logController@update')->name('log.update');
 
     Route::delete('/log/{driver_mobil:id}/delete', 'logController@destroy')->name('log.destroy');

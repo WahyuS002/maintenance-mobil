@@ -103,7 +103,9 @@
             <div class="form-group">
               <label>Foto Profil</label>
               <div class="form-file">
-                <input type="file" name="foto">
+                <img id="image-preview" alt="" src="{{ url('storage/'.$driver->foto ) }}" style="width: 200px"/>
+                <br>
+                <input type="file" name="foto" id="image-source" onchange="previewImage();">
                 <button class="btn white">Unggah Foto</button>
               </div>
             </div>
@@ -164,4 +166,15 @@
     </div>
   </div>
   <!-- / -->
+
+  <script>
+    function previewImage() { 
+      document.getElementById("image-preview").style.display = "block";
+      var oFReader = new FileReader(); 
+      oFReader.readAsDataURL(document.getElementById("image-source").files[0]); oFReader.onload = function(oFREvent)
+        { 
+          document.getElementById("image-preview").src = oFREvent.target.result; 
+        }; 
+      };
+  </script>
 @endsection

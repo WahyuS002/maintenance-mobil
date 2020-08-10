@@ -13,8 +13,8 @@
                     <div class="col-sm-7">
                         <a href class="pull-left m-r-md">
                             <span class="avatar w-96">
-                                <img src="{{ asset('flatkit/assets/images/a1.jpg') }}">
-                                <i class="on b-white"></i>
+                                <img src="{{ url('storage/'.$driver->foto) }}">
+                                {{-- <i class="on b-white"></i> --}}
                             </span>
                         </a>
                         <div class="clear m-b">

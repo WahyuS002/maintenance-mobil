@@ -31,9 +31,7 @@
                       {{-- <button class="btn btn-success btn-sm mr-3 rounded-m5">Edit</button> --}}
                       <button class="btn btn-sm btn-fs rounded p-x-sm green">Edit</button>
                     </a>
-                    <button type="button" class="btn btn-sm btn-fs rounded p-x-sm red" data-toggle="modal" data-target="#deleteModal{{ $driver->id }}">
-                        Delete
-                    </button>   
+                    <button type="button" class="btn btn-sm btn-fs rounded p-x-sm red" data-toggle="modal" data-target="#deleteModal{{ $driver->id }}"> Delete
                   </div>
                 </div>
               </div>

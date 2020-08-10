@@ -68,4 +68,15 @@ class LogController extends Controller
 
         return redirect()->back();
     }
+
+    public function findMe(Request $request)
+    {
+        $value = $request->input('value');
+
+        $mobils = Mobil::where('nama_mobil', 'like', '%' . $value . '%')
+            ->orWhere('no_plat', 'like', '%' . $value . '%')
+            ->get();
+
+        return view('logs.card', compact('mobils'));
+    }
 }

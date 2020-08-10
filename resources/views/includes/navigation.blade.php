@@ -28,6 +28,13 @@
       <!-- / navbar collapse -->
   
       <!-- navbar right -->
+      <!-- search form -->
+      @if (request()->is('log/create'))
+      <form class="form-inline mr-auto" role="search">
+        <input type="text" class="form-control b-a rounded px-3 form-control-sm" placeholder="Cari mobil..." onkeyup="findMe();">
+      </form>
+      @endif
+      <!-- / search form -->
       <ul class="nav navbar-nav ml-auto flex-row">
         <li class="nav-item dropdown pos-stc-xs">
           <a class="nav-link mr-2" href data-toggle="dropdown">

@@ -11,28 +11,15 @@
       <div class="row d-flex align-items-center">
         <div class="col-md-0">
           <h5 class="mb-0 _300">Mobil</h5>
-          <small class="text-muted">Klik salah satu mobil untuk menambahkan laporan</small>
+          <small class="text-muted">Klik salah satu mobil untuk menambahkan laporan</small>          
         </div>
+        <form class="form-inline mr-auto" role="search">
+          <input type="search" class="form-control b-a rounded px-3 form-control-sm" placeholder="Cari mobil..." id="findMe" onkeyup="myFunction()">
+        </form> 
       </div>         
     </div>
-    <div class="row">      
-      <div class="col-md-9">
-        <div class="row">
-          @foreach ($mobils as $mobil)
-            <div class="col-xs-6 col-sm-4 col-md-3">
-               <div class="box p-a-xs">                
-                  <a href="/log/{{ $mobil->id }}/store" data-toggle="modal" data-target="#tambahLogModal{{ $mobil->id }}">
-                    <img src="{{ url('storage/'.$mobil->foto) }}" alt="" class="img-responsive fit-image">
-                  </a>
-                <div class="p-a-sm">
-                  <div class="text-ellipsis">{{ $mobil->nama_mobil }}</div>
-                  <span class="text-muted">{{ $mobil->brand->nama_brand }}</span>                                    
-                </div>
-              </div>
-            </div>        
-          @endforeach                                                                                        
-        </div>
-      </div>
+    <div class="row" id="live-search">      
+      @include('logs.card')
     </div>
   </div>
 </div>
@@ -117,3 +104,25 @@
 </script>
 
 @stop
+
+@section('js')
+
+  <script>
+    function myFunction(){
+      const CSRF_TOKEN =  $('meta[name="csrf-token"]').attr('content');
+      const value = $("#findMe").val();
+      $.ajax({
+        url: '/findMe',
+        type: 'POST',
+        data:{
+          _token: CSRF_TOKEN,
+          value: value,
+        },
+        success: function(data){
+          $('#live-search').html(data)
+        }
+      });
+    }
+  </script>
+
+@endsection
