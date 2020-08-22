@@ -161,7 +161,7 @@
               </a>
             </li>
             
-            <li class="{{ request()->is('settings') ? ' active' : '' }}">
+            <li class="{{ request()->is('setting/*') ? ' active' : '' }}">
               <a href="{{ route('settings') }}" >
                 <span class="nav-icon">
                   <i class="fa fa-gear"></i>

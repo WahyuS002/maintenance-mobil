@@ -55,7 +55,7 @@ Route::prefix('admin')->group(function () {
     Auth::routes();
 });
 
-Route::middleware('guest:driver')->group(function () {
+Route::middleware(['guest_auth', 'guest:driver'])->group(function () {
     Route::get('/login', 'Auth\DriverLoginController@showLoginForm')->name('driver.login');
     Route::post('/login', 'Auth\DriverLoginController@login')->name('driver.login.submit');
 });
@@ -76,7 +76,7 @@ Route::middleware('auth:driver')->group(function () {
     Route::get('/myprofile', 'ProfileController@index')->name('profile');
 
     // SETTINGS
-    Route::get('/settings', 'SettingController@index')->name('settings');
+    Route::get('/setting/profile', 'SettingController@index')->name('settings');
 
     Route::patch('/setting/update', 'SettingController@update')->name('setting.update');
 
