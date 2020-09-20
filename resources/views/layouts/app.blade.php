@@ -2,42 +2,6 @@
     $brands = App\Brand::all();
 @endphp
 
-{{-- <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Maintenance Mobil BI</title>
-    
-    @include('includes.style')
-
-  </head>
-  <body>
-    <div class="container-scroller">
-      
-    @include('includes.navigation')
-
-      <!-- partial -->
-      <div class="container-fluid page-body-wrapper">
-        <!-- partial:partials/_sidebar.html -->
-        @include('includes.sidebar', ['brands' => $brands])        
-        <!-- partial -->
-        <div class="main-panel">
-          
-            @yield('content')
-
-        @include('includes.footer')
-        </div>
-        <!-- main-panel ends -->
-      </div>
-      <!-- page-body-wrapper ends -->
-    </div>
-    <!-- container-scroller -->
-    @include('includes.script')
-  </body>
-</html> --}}
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -56,8 +20,9 @@
   <!-- for Chrome on Android, multi-resolution icon of 196x196 -->
   <meta name="mobile-web-app-capable" content="yes">
   <link rel="shortcut icon" sizes="196x196" href="{{ asset('flatkit/assets/images/logo.png') }}">
-  
+
   @include('includes.style')
+  @livewireStyles
 </head>
 <body class=" pace-done dark">
   <div class="app" id="app">
@@ -65,14 +30,14 @@
 <!-- ############ LAYOUT START-->
 
     @include('includes.sidebar')
-  
+
   <!-- content -->
   <div id="content" class="app-content box-shadow-z0" role="main">
-    
+
     @include('includes.navigation')
 
     @include('includes.footer')
-    
+
     @yield('content')
 
   </div>
@@ -85,6 +50,7 @@
   @include('includes.script')
 
   @yield('js')
+  @livewireScripts
 </body>
 </html>
 
