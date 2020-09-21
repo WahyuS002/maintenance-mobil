@@ -5,10 +5,10 @@
         <i class="material-icons">&#xe5d2;</i>
       </a>
       <!-- / -->
-  
+
       <!-- Page title - Bind to $state's title -->
       <div class="mb-0 h5 no-wrap" ng-bind="$state.current.data.title" id="pageTitle"></div>
-  
+
       <!-- navbar collapse -->
       <div class="collapse navbar-collapse" id="collapse">
         <!-- link and dropdown -->
@@ -21,17 +21,17 @@
             <div ui-include="'{{ asset('flatkit/views/blocks/dropdown.new.html') }}'"></div>
           </li>
         </ul>
-  
+
         <div ui-include="'{{ asset('flatkit/views/blocks/navbar.form.html') }}'"></div>
         <!-- / -->
       </div>
       <!-- / navbar collapse -->
-  
+
       <!-- navbar right -->
       <!-- search form -->
       @if (request()->is('log/create'))
       <form class="form-inline mr-auto" role="search">
-        <input type="text" class="form-control b-a rounded px-3 form-control-sm" placeholder="Cari mobil..." onkeyup="findMe();">
+        <input type="text" class="form-control b-a rounded px-3 form-control-sm" placeholder="Cari mobil..." id="findMe" onkeyup="myFunction()">
       </form>
       @endif
       <!-- / search form -->
@@ -61,3 +61,21 @@
       <!-- / navbar right -->
   </div>
 </div>
+
+<script>
+  function myFunction(){
+    const CSRF_TOKEN =  $('meta[name="csrf-token"]').attr('content');
+    const value = $("#findMe").val();
+    $.ajax({
+      url: '/findMe',
+      type: 'POST',
+      data:{
+        _token: CSRF_TOKEN,
+        value: value,
+      },
+      success: function(data){
+        $('#live-search').html(data)
+      }
+    });
+  }
+</script>

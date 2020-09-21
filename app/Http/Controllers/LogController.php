@@ -8,6 +8,8 @@ use App\DriverMobil;
 
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\DB;
+
 use Auth;
 
 class LogController extends Controller
@@ -73,7 +75,10 @@ class LogController extends Controller
     {
         $value = $request->input('value');
 
-        $mobils = Mobil::where('nama_mobil', 'like', '%' . $value . '%')
+        $mobils = DB::table('mobils')
+            ->join('brands', 'mobils.brand_id', '=', 'brands.id')
+            ->where('nama_mobil', 'like', '%' . $value . '%')
+            ->orWhere('nama_brand', 'like', '%' . $value . '%')
             ->orWhere('no_plat', 'like', '%' . $value . '%')
             ->get();
 

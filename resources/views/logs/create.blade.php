@@ -7,14 +7,11 @@
       <div class="row d-flex align-items-center">
         <div class="col-md-0">
           <h5 class="mb-0 _300">Mobil</h5>
-          <small class="text-muted">Klik salah satu mobil untuk menambahkan laporan</small>          
+          <small class="text-muted">Klik salah satu mobil untuk menambahkan laporan</small>
         </div>
-        <form class="form-inline mr-auto" role="search">
-          <input type="search" class="form-control b-a rounded px-3 form-control-sm" placeholder="Cari mobil..." id="findMe" onkeyup="myFunction()">
-        </form> 
-      </div>         
+      </div>
     </div>
-    <div class="row" id="live-search">      
+    <div class="row" id="live-search">
       @include('logs.card')
     </div>
   </div>
@@ -31,34 +28,34 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">            
+      <div class="modal-body">
 
         <form action="/log/{{ $mobil->id }}/store" method="POST" id="form-create">
-            @csrf                  
+            @csrf
             <div class="form-group">
                 <label for="no_plat">Treatment</label>
                 <input type="text" class="form-control" id="no_plat" name="no_plat" value="~ MASIH KOSONG ~" disabled>
-            </div>         
+            </div>
             <div class="form-group">
               <label for="laporan">Laporan</label>
               <textarea class="form-control" id="laporan" name="laporan" rows="2"></textarea>
-              <div class="text-danger mt-2" id="error-laporan"></div> 
+              <div class="text-danger mt-2" id="error-laporan"></div>
             </div>
             <div class="form-group">
               <label for="waktu">Waktu</label>
               <input type="date" class="form-control" id="waktu" name="waktu">
               <div class="text-danger mt-2" id="error-waktu"></div>
-            </div>               
+            </div>
             <div class="form-group">
               <label for="biaya">Biaya</label>
               <input type="number" class="form-control quantity" id="biaya" name="biaya" min="1000" max="1000000" maxlength="7">
               <div class="text-danger mt-2" id="error-biaya"></div>
-            </div>               
-            <hr>            
+            </div>
+            <hr>
               <div class="d-flex bd-highlight mb-3">
                 <button type="button" class="btn btn-sm btn-secondary p-2 bd-highlight mr-2" data-dismiss="modal">Close</button>
                 <button type="button" onclick="kirimData()" class="btn btn-sm btn-primary p-2 bd-highlight">Tambah</button>
-              </div>            
+              </div>
         </form>
 
       </div>
@@ -77,35 +74,17 @@
       $("#error-biaya").html('')
       $("#form-create").ajaxSubmit({
       success:function(res){
-          window.location.reload()        
+          window.location.reload()
       },
-      error:function(e1,e2){              
-          let laporan = e1.responseJSON.errors.laporan;        
-          let biaya = e1.responseJSON.errors.biaya;        
-          let waktu = e1.responseJSON.errors.waktu;        
+      error:function(e1,e2){
+          let laporan = e1.responseJSON.errors.laporan;
+          let biaya = e1.responseJSON.errors.biaya;
+          let waktu = e1.responseJSON.errors.waktu;
           $("#error-laporan").append(laporan)
           $("#error-waktu").append(waktu)
           $("#error-biaya").append(biaya)
       }
       })
-    }
-  </script>
-
-  <script>
-    function myFunction(){
-      const CSRF_TOKEN =  $('meta[name="csrf-token"]').attr('content');
-      const value = $("#findMe").val();
-      $.ajax({
-        url: '/findMe',
-        type: 'POST',
-        data:{
-          _token: CSRF_TOKEN,
-          value: value,
-        },
-        success: function(data){
-          $('#live-search').html(data)
-        }
-      });
     }
   </script>
 
