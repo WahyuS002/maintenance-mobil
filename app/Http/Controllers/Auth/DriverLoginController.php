@@ -15,7 +15,7 @@ class DriverLoginController extends Controller
 
     public function login(Request $request)
     {
-        // validasi        
+        // validasi
         $this->validate($request, [
             'nik' => 'required',
             'password' => 'required'
@@ -28,7 +28,8 @@ class DriverLoginController extends Controller
         }
 
         // jika gagal
-        return redirect()->back()->withInput($request->only('nik', 'remember'));
+        return redirect()->back()->with('toast_error', 'NIK atau Password anda salah')->withInput($request->only('nik', 'remember'));
+        // alert()->error('Title', 'Lorem Lorem Lorem');
     }
 
     public function logout()

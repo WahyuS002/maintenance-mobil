@@ -15,15 +15,16 @@
   <!-- for Chrome on Android, multi-resolution icon of 196x196 -->
   <meta name="mobile-web-app-capable" content="yes">
   <link rel="shortcut icon" sizes="196x196" href="{{ asset('flatkit/assets/images/logo.png') }}">
-  
+
   @include('includes.style')
 </head>
 
 <body class=" pace-done dark">
-    
+
     @yield('content')
-    
+
     @include('includes.script')
 
+    @include('sweetalert::alert')
 </body>
 </html>

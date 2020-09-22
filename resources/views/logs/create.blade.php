@@ -78,7 +78,8 @@
       $("#error-biaya").html('')
       $("#form-create").ajaxSubmit({
       success:function(res){
-          window.location.reload()
+          // window.location.reload()
+          window.location = '{{ url("log/") }}'
       },
       error:function(e1,e2){
           let laporan = e1.responseJSON.errors.laporan;
