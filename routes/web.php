@@ -50,7 +50,7 @@ Route::middleware('auth')->group(function () {
     Route::delete('/treatment/{treatment:id}/delete', 'TreatmentController@destroy');
 });
 
-// Auth::routes(); Change to 
+// Auth::routes(); Change to
 Route::prefix('admin')->group(function () {
     Auth::routes();
 });
