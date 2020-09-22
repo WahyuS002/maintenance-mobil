@@ -21,7 +21,9 @@
   <meta name="mobile-web-app-capable" content="yes">
   <link rel="shortcut icon" sizes="196x196" href="{{ asset('flatkit/assets/images/logo.png') }}">
 
+  @stack('style-before')
   @include('includes.style')
+  @stack('style-after')
   @livewireStyles
 </head>
 <body class=" pace-done dark">
@@ -49,7 +51,9 @@
 
   @include('includes.script')
 
+  @stack('script-before')
   @yield('js')
+  @stack('script-after')
   @livewireScripts
 </body>
 </html>

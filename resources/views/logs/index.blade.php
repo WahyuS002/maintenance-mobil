@@ -37,9 +37,11 @@
             </td>
           </tr>
           @empty
-          <tr>
-            <td colspan="6" class="text-center badge-danger">Data Kosong</td>
-          </tr>
+          <tbody>
+            <tr>
+              <td colspan="6" class="text-center alert-danger">Data Kosong !</td>
+            </tr>
+          </tbody>
           @endforelse
         </tbody>
       </table>

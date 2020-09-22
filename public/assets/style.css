@@ -5,3 +5,11 @@
 .custom-button {
     width: 78px !important;
 }
+
+.box-rounded {
+    border-radius: 10px;
+}
+
+.box-rounded img {
+    border-radius: 10px 10px 0px 0px;
+}

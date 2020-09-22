@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@push('style-after')
+  <link rel="stylesheet" href="{{ asset('assets/style.css') }}">
+@endpush
+
 @section('content')
 <div ui-view class="app-body" id="view">
   <div class="padding">
