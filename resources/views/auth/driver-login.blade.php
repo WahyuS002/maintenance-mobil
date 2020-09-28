@@ -17,17 +17,17 @@
         @csrf
         <div class="md-form-group float-label">
             <input id="nik" type="nik" ng-model="user.email" class="md-input form-control @error('nik') is-invalid @enderror" name="nik" value="{{ old('nik') }}" required autocomplete="nik" autofocus>
-            
-            <label for="nik">{{ __('NIK') }}</label>         
+
+            <label for="nik">{{ __('NIK') }}</label>
 
             @error('nik')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
                 </span>
-            @enderror            
+            @enderror
         </div>
 
-        <div class="md-form-group float-label">                                    
+        <div class="md-form-group float-label">
             <input id="password" type="password" ng-model="user.password" class="md-input form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
 
             <label for="password">{{ __('Password') }}</label>
@@ -36,14 +36,14 @@
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
                 </span>
-            @enderror            
+            @enderror
         </div>
 
-        <div class="m-b-md">                                        
+        <div class="m-b-md">
             <label class="md-check" for="remember">
                 <input type="checkbox" name="remember" id="remember" {{ old('remember') ? 'checked' : '' }}><i class="primary"></i> Keep me signed in
-            </label>                            
-        </div>                
+            </label>
+        </div>
             <button type="submit" class="btn primary btn-block p-x-md">
                 {{ __('Sign in') }}
             </button>
