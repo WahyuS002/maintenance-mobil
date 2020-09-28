@@ -32,23 +32,6 @@ class LogController extends Controller
         return view('logs.create', compact('mobils'));
     }
 
-    public function store(Request $request, Mobil $mobil)
-    {
-        $this->validate($request, [
-            'laporan' => 'required',
-            'waktu' => 'required',
-            'biaya' => 'required'
-        ]);
-
-        $logs = $request->all();
-        $logs['driver_id'] = Auth::user()->id;
-        $logs['mobil_id'] = $mobil->id;
-
-        DriverMobil::create($logs);
-
-        return response()->json(true);
-    }
-
     public function update(Request $request, DriverMobil $driverMobil)
     {
         $driverMobil->id = $request->id;
@@ -71,6 +54,7 @@ class LogController extends Controller
         return redirect()->back();
     }
 
+    // DIHAPUS
     public function findMe(Request $request)
     {
         $value = $request->input('value');

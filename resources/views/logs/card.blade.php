@@ -3,7 +3,7 @@
       @foreach ($mobils as $mobil)
         <div class="col-xs-6 col-sm-4 col-md-3">
            <div class="box box-rounded p-a-xs">
-              <a href="/log/{{ $mobil->id }}/store" data-toggle="modal" data-target="#tambahLogModal{{ $mobil->id }}">
+              <a data-toggle="modal" data-target="#tambahLogModal">
                 <img src="{{ url('storage/'.$mobil->foto) }}" alt="" class="img-responsive fit-image">
               </a>
             <div class="p-a-sm">
