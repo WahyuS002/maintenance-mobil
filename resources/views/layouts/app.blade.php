@@ -55,8 +55,6 @@
   @yield('js')
   @stack('script-after')
   @livewireScripts
-
-  @include('sweetalert::alert')
 </body>
 </html>
 

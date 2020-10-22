@@ -28,7 +28,7 @@ class DriverLoginController extends Controller
         }
 
         // jika gagal
-        return redirect()->back()->with('toast_error', 'NIK atau Password anda salah')->withInput($request->only('nik', 'remember'));
+        return redirect()->back()->withInput($request->only('nik', 'remember'));
         // alert()->error('Title', 'Lorem Lorem Lorem');
     }
 

@@ -8,8 +8,6 @@ use App\Mobil;
 
 use Illuminate\Http\Request;
 
-use RealRashid\SweetAlert\Facades\Alert;
-
 class AdminController extends Controller
 {
     function index()
