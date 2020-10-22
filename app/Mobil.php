@@ -22,4 +22,11 @@ class Mobil extends Model
     {
         return $this->belongsToMany(Driver::class);
     }
+
+    public function scopeSearch($query, $val)
+    {
+        return $query
+            ->where('no_plat', 'like', '%' . $val . '%')
+            ->Orwhere('nama_mobil', 'like', '%' . $val . '%');
+    }
 }

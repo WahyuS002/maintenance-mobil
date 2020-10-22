@@ -8,23 +8,28 @@ use App\Mobil;
 
 use Illuminate\Support\Facades\Auth;
 
-class Card extends Component
+class CardMobil extends Component
 {
-    public $mobils;
     public $id_mobil, $nama_mobil, $no_plat_mobil;
     public $laporan, $waktu, $biaya;
     public $user_id;
 
-    public function mount($mobils)
-    {
-        $this->mobils = $mobils;
+    protected $listeners = ['searching'];
+    public $search = null;
 
+    public function mount()
+    {
         $this->user_id = Auth::user()->id;
     }
 
     public function render()
     {
-        return view('livewire.logs.card');
+        if ($this->search !== null) {
+            $mobils = Mobil::query()->search($this->search)->paginate(8);
+        } else {
+            $mobils = Mobil::latest()->paginate(8);
+        }
+        return view('livewire.logs.card-mobil', compact('mobils'));
     }
 
     public function tambahLogModal($id)
@@ -54,7 +59,10 @@ class Card extends Component
         $this->no_plat_mobil = '';
 
         $this->dispatchBrowserEvent('logCreated');
+    }
 
-        // dd($id);
+    public function searching($search)
+    {
+        $this->search = $search;
     }
 }

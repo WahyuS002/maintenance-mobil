@@ -53,19 +53,4 @@ class LogController extends Controller
 
         return redirect()->back();
     }
-
-    // DIHAPUS
-    public function findMe(Request $request)
-    {
-        $value = $request->input('value');
-
-        $mobils = DB::table('mobils')
-            ->join('brands', 'mobils.brand_id', '=', 'brands.id')
-            ->where('nama_mobil', 'like', '%' . $value . '%')
-            ->orWhere('nama_brand', 'like', '%' . $value . '%')
-            ->orWhere('no_plat', 'like', '%' . $value . '%')
-            ->get();
-
-        return view('logs.card', compact('mobils'));
-    }
 }

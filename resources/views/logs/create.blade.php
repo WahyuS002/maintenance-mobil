@@ -15,9 +15,8 @@
         </div>
       </div>
     </div>
-    <div class="row" id="live-search">
-      {{-- @include('logs.card') --}}
-      <livewire:logs.card :mobils="$mobils">
+    <div class="row">
+      <livewire:logs.card-mobil>
     </div>
   </div>
 </div>
@@ -31,26 +30,4 @@
 })
 </script>
 
-<script>
-  // function kirimData(){
-    //   $("#error-laporan").html('')
-    //   $("#error-waktu").html('')
-    //   $("#error-biaya").html('')
-    //   $("#form-create").ajaxSubmit({
-      //   success:function(res){
-        // window.location.reload()
-        //         window.location = '{{ url("log/") }}'
-        //     },
-        //     error:function(e1,e2){
-          //         let laporan = e1.responseJSON.errors.laporan;
-          //         let biaya = e1.responseJSON.errors.biaya;
-          //         let waktu = e1.responseJSON.errors.waktu;
-          //         $("#error-laporan").append(laporan)
-          //         $("#error-waktu").append(waktu)
-          //         $("#error-biaya").append(biaya)
-          //     }
-          //     })
-          //   }
-          // </script>
-
-          @endsection
+@endsection

@@ -47,18 +47,7 @@
             <button type="submit" class="btn primary btn-block p-x-md">
                 {{ __('Sign in') }}
             </button>
-
-            {{-- @if (Route::has('password.request'))
-                <a class="btn btn-link" href="{{ route('password.request') }}">
-                    {{ __('Forgot Your Password?') }}
-                </a>
-            @endif             --}}
       </form>
-    </div>
-
-    <div class="p-v-lg text-center">
-      <div class="m-b"><a ui-sref="access.forgot-password" href="{{ route('password.request') }}" class="text-primary _600">Forgot password?</a></div>
-        <div>Do not have an account? <a ui-sref="access.signup" href="{{ route('register') }}" class="text-primary _600">Sign up</a></div>
     </div>
   </div>
 

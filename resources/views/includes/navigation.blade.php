@@ -1,81 +1,61 @@
 <div class="app-header white box-shadow navbar-md">
   <div class="navbar navbar-toggleable-sm flex-row align-items-center">
-      <!-- Open side - Naviation on mobile -->
-      <a data-toggle="modal" data-target="#aside" class="hidden-lg-up mr-3">
-        <i class="material-icons">&#xe5d2;</i>
-      </a>
-      <!-- / -->
+    <!-- Open side - Naviation on mobile -->
+    <a data-toggle="modal" data-target="#aside" class="hidden-lg-up mr-3">
+      <i class="material-icons">&#xe5d2;</i>
+    </a>
+    <!-- / -->
 
-      <!-- Page title - Bind to $state's title -->
-      <div class="mb-0 h5 no-wrap" ng-bind="$state.current.data.title" id="pageTitle"></div>
+    <!-- Page title - Bind to $state's title -->
+    <div class="mb-0 h5 no-wrap" ng-bind="$state.current.data.title" id="pageTitle"></div>
 
-      <!-- navbar collapse -->
-      <div class="collapse navbar-collapse" id="collapse">
-        <!-- link and dropdown -->
-        <ul class="nav navbar-nav mr-auto">
-          <li class="nav-item dropdown">
-            <a class="nav-link" href data-toggle="dropdown">
-              <i class="fa fa-fw fa-plus text-muted"></i>
-              <span>New</span>
-            </a>
-            <div ui-include="'{{ asset('flatkit/views/blocks/dropdown.new.html') }}'"></div>
-          </li>
-        </ul>
-
-        <div ui-include="'{{ asset('flatkit/views/blocks/navbar.form.html') }}'"></div>
-        <!-- / -->
-      </div>
-      <!-- / navbar collapse -->
-
-      <!-- navbar right -->
-      <!-- search form -->
-      @if (request()->is('log/create'))
-      <form class="form-inline mr-auto" role="search">
-        <input type="text" class="form-control b-a rounded px-3 form-control-sm" placeholder="Cari mobil..." id="findMe" onkeyup="myFunction()">
-      </form>
-      @endif
-      <!-- / search form -->
-      <ul class="nav navbar-nav ml-auto flex-row">
-        <li class="nav-item dropdown pos-stc-xs">
-          <a class="nav-link mr-2" href data-toggle="dropdown">
-            <i class="material-icons">&#xe7f5;</i>
-            <span class="label label-sm up warn">3</span>
-          </a>
-          <div ui-include="'{{ asset('flatkit/views/blocks/dropdown.notification.html') }}'"></div>
-        </li>
+    <!-- navbar collapse -->
+    <div class="collapse navbar-collapse" id="collapse">
+      <!-- link and dropdown -->
+      <ul class="nav navbar-nav mr-auto">
         <li class="nav-item dropdown">
-          <a class="nav-link p-0 clear" href="#" data-toggle="dropdown">
-            <span class="avatar w-32">
-              <img src="{{ asset('flatkit/assets/images/a0.jpg') }}" alt="...">
-              <i class="on b-white bottom"></i>
-            </span>
+          <a class="nav-link" href data-toggle="dropdown">
+            <i class="fa fa-fw fa-plus text-muted"></i>
+            <span>New</span>
           </a>
-          <div ui-include="'{{ asset('flatkit/views/blocks/dropdown.user.html') }}'"></div>
-        </li>
-        <li class="nav-item hidden-md-up">
-          <a class="nav-link pl-2" data-toggle="collapse" data-target="#collapse">
-            <i class="material-icons">&#xe5d4;</i>
-          </a>
+          <div ui-include="'{{ asset('flatkit/views/blocks/dropdown.new.html') }}'"></div>
         </li>
       </ul>
-      <!-- / navbar right -->
+
+      <div ui-include="'{{ asset('flatkit/views/blocks/navbar.form.html') }}'"></div>
+      <!-- / -->
+    </div>
+    <!-- / navbar collapse -->
+
+    <!-- navbar right -->
+    <!-- search form -->
+    @if (request()->is('log/create'))
+      <livewire:logs.searching-mobil>
+    @endif
+    <!-- / search form -->
+    <ul class="nav navbar-nav ml-auto flex-row">
+      <li class="nav-item dropdown pos-stc-xs">
+        <a class="nav-link mr-2" href data-toggle="dropdown">
+          <i class="material-icons">&#xe7f5;</i>
+          <span class="label label-sm up warn">3</span>
+        </a>
+        <div ui-include="'{{ asset('flatkit/views/blocks/dropdown.notification.html') }}'"></div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link p-0 clear" href="#" data-toggle="dropdown">
+          <span class="avatar w-32">
+            <img src="{{ asset('flatkit/assets/images/a0.jpg') }}" alt="...">
+            <i class="on b-white bottom"></i>
+          </span>
+        </a>
+        <div ui-include="'{{ asset('flatkit/views/blocks/dropdown.user.html') }}'"></div>
+      </li>
+      <li class="nav-item hidden-md-up">
+        <a class="nav-link pl-2" data-toggle="collapse" data-target="#collapse">
+          <i class="material-icons">&#xe5d4;</i>
+        </a>
+      </li>
+    </ul>
+    <!-- / navbar right -->
   </div>
 </div>
-
-<script>
-  function myFunction(){
-    const CSRF_TOKEN =  $('meta[name="csrf-token"]').attr('content');
-    const value = $("#findMe").val();
-    $.ajax({
-      url: '/findMe',
-      type: 'POST',
-      data:{
-        _token: CSRF_TOKEN,
-        value: value,
-      },
-      success: function(data){
-        $('#live-search').html(data)
-      }
-    });
-  }
-</script>
