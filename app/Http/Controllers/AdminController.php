@@ -8,10 +8,15 @@ use App\Mobil;
 
 use Illuminate\Http\Request;
 
+use RealRashid\SweetAlert\Facades\Alert;
+
 class AdminController extends Controller
 {
     function index()
     {
+
+        Alert::warning('Warning Title', 'Warning Message');
+
         $mobil_count = Mobil::all()->count();
         $driver_count = Driver::all()->count();
         $log_count = DriverMobil::all()->count();

@@ -43,12 +43,12 @@
 	          </div>
 	        </div>
 	    </div>
-	</div>	
+	</div>
 	<div class="row">
 	    <div class="col-sm-6 col-md-4">
 	        <div class="box">
 	            <div class="box-header">
-				  <h3>Mobil</h3>				  
+				  <h3>Mobil</h3>
 	            </div>
 	            <ul class="list no-border p-b">
 					@foreach ($mobils as $mobil)
@@ -64,7 +64,7 @@
 						  <small class="text-muted text-ellipsis">{{ $mobil->brand->nama_brand }}</small>
 						</div>
 					  </li>
-					@endforeach	              	              
+					@endforeach
 	            </ul>
 	        </div>
 	    </div>
@@ -73,7 +73,7 @@
 				<div class="box-header">
 					<h3>Driver</h3>
 					<small>20 finished, 5 remaining</small>
-				</div>			
+				</div>
 				  <ul class="list no-border p-b">
 					  @foreach ($drivers as $driver)
 					  <li class="list-item">
@@ -88,7 +88,7 @@
 							<small class="text-muted text-ellipsis">{{ $driver->nik }}</small>
 						  </div>
 						</li>
-					  @endforeach	              	              
+					  @endforeach
 				  </ul>
 			  	<div class="box-footer">
 			  		<a href class="btn btn-sm warn text-u-c pull-right">Add one</a>
@@ -114,7 +114,7 @@
 							<a href class="text-info">{{ $treatment->nama }}</a><span class="m-l-sm sl-date">{{ $treatment->created_at->diffForHumans() }}</span>
 							<div>{{ $treatment->laporan }} <small class="text-muted">Rp. {{ $treatment->biaya }}</small>.</div>
 							</div>
-						</div>		              
+						</div>
 						@endforeach
 		            </div>
 		            <a href class="btn btn-sm white text-u-c m-y-xs">Load More</a>

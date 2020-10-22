@@ -99,15 +99,6 @@ class DriverController extends Controller
             $nama_file = $request->foto->getClientOriginalName();
             $driver->foto = $request->foto->storeAs('foto', $nama_file, 'public');
 
-            // Mass Assignment
-            // $nama_file = $request->foto->getClientOriginalName();
-
-            // $driver = Driver::create([
-            //     'nama' => $request->nama,
-            //     'nik' => $request->nik,
-            //     'foto' => $request->foto->storeAs('foto', $nama_file, 'public')
-            // ]);
-
             $driver->save();
         }
         return redirect()->to('/driver');
