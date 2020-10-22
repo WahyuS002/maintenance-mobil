@@ -25,15 +25,15 @@ class SettingController extends Controller
         $id = Auth::user()->id;
         $data = $request->except(['_token', '_method']);
 
-        $nama_file = $request->foto->getClientOriginalName();
-        $foto = $data['foto'] = $request->foto->storeAs('foto', $nama_file, 'public');
-
-        $data['foto'] = $foto;
+        if ($request->foto != null) {
+            $nama_file = $request->foto->getClientOriginalName();
+            $foto = $request->foto->storeAs('foto', $nama_file, 'public');
+            $data['foto'] = $foto;
+        }
 
         Driver::where('id', $id)->update($data);
 
         return redirect()->back();
-        // Driver::update($data)->where('id', 1);
     }
 
     public function passwordForm()

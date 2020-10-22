@@ -21,7 +21,7 @@ class CreateDriversTable extends Migration
             $table->string('role', 10)->nullable();
             $table->string('password');
             $table->string('alamat', 32)->nullable();
-            $table->integer('no_hp')->nullable();
+            $table->string('no_hp', 20)->nullable();
             $table->enum('jk', ['p', 'l'])->nullable();
 
             $table->rememberToken();

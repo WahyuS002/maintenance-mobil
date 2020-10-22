@@ -8,8 +8,6 @@ use App\DriverMobil;
 
 use Illuminate\Http\Request;
 
-use Illuminate\Support\Facades\DB;
-
 use Auth;
 
 class LogController extends Controller
