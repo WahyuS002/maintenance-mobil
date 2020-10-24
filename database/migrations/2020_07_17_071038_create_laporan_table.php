@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDriverMobilTable extends Migration
+class CreateLaporanTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateDriverMobilTable extends Migration
      */
     public function up()
     {
-        Schema::create('driver_mobil', function (Blueprint $table) {
+        Schema::create('laporan', function (Blueprint $table) {
             $table->id();
 
             $table->integer('driver_id')->constrained('drivers');
@@ -36,6 +36,6 @@ class CreateDriverMobilTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('driver_mobil');
+        Schema::dropIfExists('laporan');
     }
 }

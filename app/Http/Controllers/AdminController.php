@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Driver;
-use App\DriverMobil;
+use App\Laporan;
 use App\Mobil;
 
 use Illuminate\Http\Request;
@@ -12,20 +12,17 @@ class AdminController extends Controller
 {
     function index()
     {
-
-        Alert::warning('Warning Title', 'Warning Message');
-
         $mobil_count = Mobil::all()->count();
         $driver_count = Driver::all()->count();
-        $log_count = DriverMobil::all()->count();
+        $log_count = Laporan::all()->count();
 
         $mobils = Mobil::latest()->take(6)->get();
         $drivers = Driver::latest()->take(5)->get();
 
-        // $treatments = DriverMobil::latest()->take(5)->get();
+        // $treatments = Laporan::latest()->take(5)->get();
 
-        $treatments = DriverMobil::join('drivers', 'drivers.id', '=', 'driver_mobil.driver_id')
-            ->latest('driver_mobil.created_at')->take(5)->get();
+        $treatments = Laporan::join('drivers', 'drivers.id', '=', 'laporan.driver_id')
+            ->latest('laporan.created_at')->take(5)->get();
 
         return view('admin.index', [
             'mobil_count' => $mobil_count,

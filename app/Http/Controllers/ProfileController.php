@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Driver;
-use App\DriverMobil;
+use App\Laporan;
 use Auth;
 
 class ProfileController extends Controller
@@ -16,7 +16,7 @@ class ProfileController extends Controller
         $id = Auth::user()->id;
         $driver = Driver::where('id', $id)->first();
 
-        $laporan = DriverMobil::where('driver_id', $id)->latest()->get();
+        $laporan = Laporan::where('driver_id', $id)->latest()->get();
 
         return view('profiles.index', [
             'driver' => $driver,

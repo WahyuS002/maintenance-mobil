@@ -2,7 +2,7 @@
 
 namespace App\Http\Livewire\Logs;
 
-use App\DriverMobil;
+use App\Laporan;
 use Livewire\Component;
 use App\Mobil;
 
@@ -52,7 +52,7 @@ class CardMobil extends Component
         $validatedData['driver_id'] = $this->user_id;
         $validatedData['mobil_id'] = $mobil_id;
 
-        DriverMobil::create($validatedData);
+        Laporan::create($validatedData);
 
         $this->id_mobil = '';
         $this->nama_mobil = '';

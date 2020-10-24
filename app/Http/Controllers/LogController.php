@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Mobil;
 use App\Driver;
-use App\DriverMobil;
+use App\Laporan;
 
 use Illuminate\Http\Request;
 
@@ -30,24 +30,24 @@ class LogController extends Controller
         return view('logs.create', compact('mobils'));
     }
 
-    public function update(Request $request, DriverMobil $driverMobil)
+    public function update(Request $request, Laporan $laporan)
     {
-        $driverMobil->id = $request->id;
-        $driverMobil->mobil_id = $request->mobil_id;
-        $driverMobil->driver_id = Auth::user()->id;
-        $driverMobil->laporan = $request->laporan;
-        $driverMobil->waktu = $request->waktu;
-        $driverMobil->biaya = $request->biaya;
+        $laporan->id = $request->id;
+        $laporan->mobil_id = $request->mobil_id;
+        $laporan->driver_id = Auth::user()->id;
+        $laporan->laporan = $request->laporan;
+        $laporan->waktu = $request->waktu;
+        $laporan->biaya = $request->biaya;
 
 
-        $driverMobil->save();
+        $laporan->save();
 
         return redirect()->back();
     }
 
-    public function destroy(DriverMobil $driver_mobil)
+    public function destroy(laporan $laporan)
     {
-        $driver_mobil->delete();
+        $laporan->delete();
 
         return redirect()->back();
     }

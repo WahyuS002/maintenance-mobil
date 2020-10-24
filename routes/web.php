@@ -69,9 +69,9 @@ Route::middleware('auth:driver')->group(function () {
     // FINDME
     Route::post('/findMe', 'logController@findMe');
 
-    Route::patch('/log/{driver_mobil:id}/update', 'logController@update')->name('log.update');
+    Route::patch('/log/{laporan:id}/update', 'logController@update')->name('log.update');
 
-    Route::delete('/log/{driver_mobil:id}/delete', 'logController@destroy')->name('log.destroy');
+    Route::delete('/log/{laporan:id}/delete', 'logController@destroy')->name('log.destroy');
 
     Route::get('/myprofile', 'ProfileController@index')->name('profile');
 

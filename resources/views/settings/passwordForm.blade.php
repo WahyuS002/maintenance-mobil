@@ -10,10 +10,10 @@
               <i class="material-icons">&#xe5d2;</i>
             </a>
             <!-- / -->
-        
+
             <!-- Page title - Bind to $state's title -->
             <div class="mb-0 h5 no-wrap" ng-bind="$state.current.data.title" id="pageTitle"></div>
-        
+
             <!-- navbar collapse -->
             <div class="collapse navbar-collapse" id="collapse">
               <!-- link and dropdown -->
@@ -26,12 +26,12 @@
                   <div ui-include="'../views/blocks/dropdown.new.html'"></div>
                 </li>
               </ul>
-        
+
               <div ui-include="'../views/blocks/navbar.form.html'"></div>
               <!-- / -->
             </div>
             <!-- / navbar collapse -->
-        
+
             <!-- navbar right -->
             <ul class="nav navbar-nav ml-auto flex-row">
               <li class="nav-item dropdown pos-stc-xs">
@@ -83,9 +83,8 @@
             <a class="nav-link block" href="{{ route('settings') }}" >Profil</a>
           </li>
           <li class="nav-item">
-            {{-- <a class="nav-link block" href data-toggle="tab" data-target="#tab-2">Ubah Password</a>             --}}
-            <a class="nav-link block active" href="{{ route('setting.change-password') }}" data-toggle="tab" data-target="#tab-1">Ubah Password</a>            
-          </li>          
+            <a class="nav-link block active" href="{{ route('setting.change-password') }}" data-toggle="tab" data-target="#tab-1">Ubah Password</a>
+          </li>
         </ul>
       </div>
     </div>
@@ -111,28 +110,28 @@
         @endif
         <form role="form" class="p-a-md col-md-6" action="{{ route('setting.password') }}"  method="POST">
           @csrf
-          @method('patch')    
+          @method('patch')
           <div class="form-group">
             <label>Password Lama</label>
-            <input type="text" class="form-control" name="pw_lama">
+            <input type="text" class="form-control" name="pw_lama" placeholder="**********">
           </div>
           <div class="form-group">
             <label>Password Baru</label>
-            <input type="text" class="form-control" name="pw_baru1">
+            <input type="text" class="form-control" name="pw_baru1" placeholder="**********">
             @error('pw_baru1')
               <div class="text-danger">{{ $message }}</div>
             @enderror
           </div>
           <div class="form-group">
             <label>Konfirmasi Password</label>
-            <input type="text" class="form-control" name="pw_baru2">
+            <input type="text" class="form-control" name="pw_baru2" placeholder="**********">
             @error('pw_baru1')
               <div class="text-danger">{{ $message }}</div>
             @enderror
           </div>
           <button type="submit" class="btn btn-info m-t">Update</button>
         </form>
-      </div>      
+      </div>
     </div>
   </div>
 {{-- </div> --}}
@@ -144,7 +143,7 @@
     <div class="row-cell v-m">
       <div class="modal-dialog modal-sm">
         <div class="modal-content flip-y">
-          <div class="modal-body text-center">          
+          <div class="modal-body text-center">
             <p class="p-y m-t"><i class="fa fa-remove text-warning fa-3x"></i></p>
             <p>Are you sure to delete your account?</p>
           </div>

@@ -4,9 +4,9 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class DriverMobil extends Model
+class Laporan extends Model
 {
-    protected $table = 'driver_mobil';
+    protected $table = 'laporan';
 
     protected $fillable = ['driver_id', 'mobil_id', 'laporan', 'waktu', 'biaya'];
 

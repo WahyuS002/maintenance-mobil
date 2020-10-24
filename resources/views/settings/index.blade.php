@@ -83,7 +83,6 @@
                 <a class="nav-link block active" href data-toggle="tab" data-target="#tab-1">Profil</a>
               </li>
               <li class="nav-item">
-                {{-- <a class="nav-link block" href data-toggle="tab" data-target="#tab-2">Ubah Password</a>             --}}
                 <a class="nav-link block" href="{{ route('setting.change-password') }}" >Ubah Password</a>
               </li>
             </ul>
