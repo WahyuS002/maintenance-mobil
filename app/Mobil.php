@@ -2,6 +2,7 @@
 
 namespace App;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 
 class Mobil extends Model
@@ -27,6 +28,6 @@ class Mobil extends Model
     {
         return $query
             ->where('no_plat', 'like', '%' . $val . '%')
-            ->Orwhere('nama_mobil', 'like', '%' . $val . '%');
+            ->orWhere('nama_mobil', 'like', '%' . $val . '%');
     }
 }

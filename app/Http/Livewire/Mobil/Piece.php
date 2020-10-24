@@ -8,30 +8,25 @@ use App\Mobil;
 
 class Piece extends Component
 {
-    public $filter = false;
-    public $brand_id;
+    public $search = null;
 
-    protected $listeners = ['filter', 'allFilter'];
-
-    public function filter($brand_id)
-    {
-        $this->brand_id = $brand_id;
-        $this->filter = true;
-    }
-
-    public function allFilter()
-    {
-        $this->filter = false;
-    }
+    protected $listeners = ['searching'];
 
     public function render()
     {
-        if ($this->filter == true) {
-            $mobils = Mobil::where('brand_id', $this->brand_id)->get();
+        if ($this->search !== null) {
+            $mobils = Mobil::query()
+                ->search($this->search)
+                ->paginate(8);
         } else {
-            $mobils = Mobil::latest()->get();
+            $mobils = Mobil::latest()->paginate(8);
         }
 
         return view('livewire.mobil.piece', compact('mobils'));
+    }
+
+    public function searching($search)
+    {
+        $this->search = $search;
     }
 }

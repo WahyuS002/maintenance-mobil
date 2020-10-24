@@ -13,3 +13,22 @@
 .box-rounded img {
     border-radius: 10px 10px 0px 0px;
 }
+
+.dropdown-more {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+}
+
+.dropdown-toggle:after,
+.dropup .dropdown-toggle::after,
+.dropright .dropdown-toggle::after,
+.dropleft .dropdown-toggle::before {
+    display: none;
+}
+
+.dropdown-toggle svg.feather[class*="feather-chevron-"] {
+    width: 15px;
+    height: 15px;
+    vertical-align: middle;
+}

@@ -9,7 +9,7 @@
                 <div class="p-a-sm">
                     <div class="d-flex justify-content-between">
                         <div class="text-ellipsis">{{ $mobil->nama_mobil }}</div>
-                        <span class="text-muted">{{ $mobil->brand->nama_brand }}</span>
+                        <div class="text-muted">{{ $mobil->brand->nama_brand }}</div>
                     </div>
                 </div>
             </div>

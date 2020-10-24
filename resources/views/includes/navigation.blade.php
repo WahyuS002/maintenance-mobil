@@ -29,7 +29,7 @@
 
     <!-- navbar right -->
     <!-- search form -->
-    @if (request()->is('log/create'))
+    @if (request()->is('log/create') or request()->is('mobil'))
       <livewire:logs.searching-mobil>
     @endif
     <!-- / search form -->
