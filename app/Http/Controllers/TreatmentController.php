@@ -5,59 +5,50 @@ namespace App\Http\Controllers;
 use App\Treatment;
 use App\Mobil;
 
-use Illuminate\Http\Request;
-
 class TreatmentController extends Controller
 {
 
     public function index()
     {
-        $treatments = Treatment::all();
-        $mobils = Mobil::get();
-
-        return view('treatments.index', [
-            'treatments' => $treatments,
-            'mobils' => $mobils
-        ]);
+        return view('treatments.index');
     }
 
-    public function create()
-    {
-        $mobils = Mobil::get();
+    // public function create()
+    // {
+    //     $mobils = Mobil::get();
 
-        return view('treatments.create', compact('mobils'));
-    }
+    //     return view('treatments.create', compact('mobils'));
+    // }
 
-    public function store(Request $request)
-    {
-        $this->validate($request, [
-            'mobil_id' => 'required',
-            'jenis' => 'required',
-            'waktu' => 'required',
-        ]);
+    // public function store(Request $request)
+    // {
+    //     $this->validate($request, [
+    //         'mobil_id' => 'required',
+    //         'jenis' => 'required',
+    //         'waktu' => 'required',
+    //     ]);
 
-        Treatment::create($request->all());
+    //     Treatment::create($request->all());
 
-        // return redirect()->back();
-        return response()->json(true);
-    }
+    //     return response()->json(true);
+    // }
 
-    public function update(Request $request, Treatment $treatment)
-    {
-        Treatment::where('id', $treatment->id)
-            ->update([
-                'mobil_id' => $request->mobil_id,
-                'jenis' => $request->jenis,
-                'waktu' => $request->waktu
-            ]);
+    // public function update(Request $request, Treatment $treatment)
+    // {
+    //     Treatment::where('id', $treatment->id)
+    //         ->update([
+    //             'mobil_id' => $request->mobil_id,
+    //             'jenis' => $request->jenis,
+    //             'waktu' => $request->waktu
+    //         ]);
 
-        return redirect()->back();
-    }
+    //     return redirect()->back();
+    // }
 
-    public function destroy(Treatment $treatment)
-    {
-        $treatment->delete();
+    // public function destroy(Treatment $treatment)
+    // {
+    //     $treatment->delete();
 
-        return redirect()->back();
-    }
+    //     return redirect()->back();
+    // }
 }

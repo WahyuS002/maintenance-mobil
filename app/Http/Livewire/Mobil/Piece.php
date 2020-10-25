@@ -126,9 +126,9 @@ class Piece extends Component
         $this->dispatchBrowserEvent('openDeleteMobilModal');
     }
 
-    public function destroy($mobil)
+    public function destroy($id_mobil)
     {
-        $mobil = Mobil::find($mobil);
+        $mobil = Mobil::find($id_mobil);
         $mobil->delete();
 
         $this->dispatchBrowserEvent('closeDeleteMobilModal');

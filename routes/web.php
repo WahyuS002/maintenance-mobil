@@ -28,13 +28,6 @@ Route::middleware('auth')->group(function () {
 
     // TREATMENT
     Route::get('/treatment', 'TreatmentController@index')->name('treatment');
-
-    Route::get('/treatment/create', 'TreatmentController@create')->name('treatment.create');
-    Route::post('/treatment/store', 'TreatmentController@store')->name('treatment.store');
-
-    Route::patch('/treatment/{treatment:id}/update', 'TreatmentController@update')->name('treatment.update');
-
-    Route::delete('/treatment/{treatment:id}/delete', 'TreatmentController@destroy');
 });
 
 // Auth::routes(); Change to
