@@ -21,6 +21,7 @@ if (user) {
 
 // STORE-SUCCESS
 window.addEventListener('store-success', event => {
+  const text = event.detail.message;
   const Toast = Swal.mixin({
       toast: true,
       position: 'top-end',
@@ -35,12 +36,13 @@ window.addEventListener('store-success', event => {
 
   Toast.fire({
       icon: 'success',
-      title: 'Brand Berhasil Diinput!',
+      title: text + ' Berhasil Diinput!',
   })
 });
 
 // EDIT-SUCCESS
 window.addEventListener('edit-success', event => {
+  const text = event.detail.message;
   const Toast = Swal.mixin({
       toast: true,
       position: 'top-end',
@@ -55,12 +57,13 @@ window.addEventListener('edit-success', event => {
 
   Toast.fire({
       icon: 'success',
-      title: 'Brand Berhasil Diedit!',
+      title: text + ' Berhasil Diedit!',
   })
 });
 
 // DELETE-SUCCESS
 window.addEventListener('delete-success', event => {
+  const text = event.detail.message;
   const Toast = Swal.mixin({
       toast: true,
       position: 'top-end',
@@ -75,6 +78,6 @@ window.addEventListener('delete-success', event => {
 
   Toast.fire({
       icon: 'success',
-      title: 'Brand Berhasil Dihapus!',
+      title: text + ' Berhasil Dihapus!',
   })
 });

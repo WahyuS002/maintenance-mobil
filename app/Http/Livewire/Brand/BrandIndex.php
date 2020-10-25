@@ -6,7 +6,7 @@ use App\Brand;
 use Livewire\Component;
 use Livewire\WithPagination;
 
-class Index extends Component
+class BrandIndex extends Component
 {
     use WithPagination;
 
@@ -21,7 +21,7 @@ class Index extends Component
     {
         $brands = Brand::with('mobils')->latest()->paginate(5);
 
-        return view('livewire.brand.index', compact('brands'));
+        return view('livewire.brand.brand-index', compact('brands'));
     }
 
     /*

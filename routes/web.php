@@ -21,10 +21,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/mobil', 'MobilController@index')->name('admin.mobil');
 
     Route::get('/mobil/create', 'MobilController@create')->name('mobil.create');
-    Route::post('/mobil/store', 'MobilController@store');
 
     Route::get('/mobil/{mobil:id}/edit', 'MobilController@edit');
-    Route::patch('/mobil/{mobil:id}/update', 'MobilController@update');
 
     Route::delete('/mobil/{mobil:id}/delete', 'MobilController@destroy');
 
@@ -63,7 +61,6 @@ Route::middleware('auth:driver')->group(function () {
     Route::post('/log/{mobil:id}/store', 'logController@store')->name('log.store');
 
     // FINDME
-    Route::post('/findMe', 'logController@findMe');
 
     Route::patch('/log/{laporan:id}/update', 'logController@update')->name('log.update');
 

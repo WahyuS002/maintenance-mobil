@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="padding mt-5">
-    <livewire:brand.index>
+    <livewire:brand.brand-index>
 </div>
 @endsection
 
