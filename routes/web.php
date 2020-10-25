@@ -35,9 +35,9 @@ Route::middleware('auth')->group(function () {
     Route::get('/brands/create', 'BrandController@create')->name('brand.create');
     Route::post('/brand/store', 'BrandController@store');
 
-    Route::patch('/brand/{brand:id}/update', 'BrandController@update');
+    // Route::patch('/brand/{brand:id}/update', 'BrandController@update')->name('brand.update');
 
-    Route::delete('/brand/{brand:id}/delete', 'BrandController@destroy');
+    Route::delete('/brand/{brand:id}/delete', 'BrandController@destroy')->name('brand.delete');
 
     // TREATMENT
     Route::get('/treatment', 'TreatmentController@index')->name('treatment');
