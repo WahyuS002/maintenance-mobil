@@ -3,6 +3,9 @@
 @section('content')
 <!-- ############ PAGE START-->
 <div class="padding mt-5">
+
+	<div id="flash-data" data-user="{{ session()->get('success') }}"></div>
+
 	<div class="row mt-3">
 		<div class="col-xs-12 col-sm-4">
 	        <div class="box p-a">
@@ -126,3 +129,8 @@
 
 <!-- ############ PAGE END-->
 @endsection
+
+@push('script-after')
+	<script src="{{ asset('plugins/sweetalert2/sweetalert2.all.min.js') }}"></script>
+	<script src="{{ asset('assets/myscript.js') }}"></script>
+@endpush

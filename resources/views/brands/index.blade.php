@@ -1,50 +1,22 @@
 @extends('layouts.app')
 
+@push('style-after')
+
+  <style>
+    .page-item{
+      background-color: red;
+    }
+  </style>
+
+@endpush
+
 @section('content')
 <div class="padding mt-5">
-  <div class="box mt-3">
-    <div class="box-header">
-      <div class="d-flex bd-highlight mb-3">
-        <div class="mr-auto p-2">
-          <h2>Brand</h2>
-        </div>
-        <div class="align-self-center">
-          <a href="mymodal" data-remote="{{ route('brand.create') }}" data-title="Detail Transaksi" class="btn btn-sm btn-icon white" data-toggle="modal" data-target="#mymodal" >
-              <i class="fa fa-plus"></i>
-          </a>                      
-      </div>
-    </div>
-    </div>  
-    <table st-table="rowCollectionBasic" class="table table-striped b-t">
-      <thead>
-      <tr>
-        <th>#</th>
-        <th>Nama Brand</th>
-        <th>Action</th>
-      </tr>
-      </thead>
-      <tbody>
-        @foreach ($brands as $brand)
-        <tr ng-repeat="row in rowCollectionBasic" st-select-row="row">
-          <td>{{ $loop->iteration }}</td>
-          <td>{{ $brand->nama_brand }}</td>
-          <td>
-            <button class="btn btn-icon btn-rounded btn-success" data-toggle="modal" data-target="#editModal{{ $brand->id }}">
-            <i class="fa fa-pencil"></i>
-            </button>
-            <button class="btn btn-icon btn-rounded btn-danger" data-toggle="modal" data-target="#deleteModal{{ $brand->id }}"> 
-            <i class="fa fa-trash"></i>
-            </button>
-          </td> 
-        </tr>
-        @endforeach      
-      </tbody>
-    </table>
-  </div>
+    <livewire:brand.create-brand>
 </div>
 
 <!-- EDIT MODAL -->
-@foreach ($brands as $brand)
+{{-- @foreach ($brands as $brand)
 <div class="modal fade" id="editModal{{ $brand->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content box-shadow-md black lt m-b">
@@ -54,29 +26,29 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">            
-          <form action="/brand/{{ $brand->id }}/update" method="POST" enctype="multipart/form-data">
-              @method('patch')
-              @csrf                           
-              <div class="form-group">
-                  <label for="nama_brand">Nama Brand</label>
-                  <input type="text" class="form-control" id="nama_brand" name="nama_brand" value="{{ $brand->nama_brand }}">
-              </div>                     
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary">Edit</button>
-              </div>
-          </form>                                          
+      <div class="modal-body">
+        <form action="/brand/{{ $brand->id }}/update" method="POST" enctype="multipart/form-data">
+          @method('patch')
+          @csrf
+          <div class="form-group">
+            <label for="nama_brand">Nama Brand</label>
+            <input type="text" class="form-control" id="nama_brand" name="nama_brand" value="{{ $brand->nama_brand }}">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Edit</button>
+          </div>
+        </form>
       </div>
     </div>
   </div>
-</div>
+</div> --}}
 <!-- /EDIT MODAL -->
 
 {{-- DELETE MODAL --}}
-<form action="/brand/{{ $brand->id }}/delete" method="POST">
+{{-- <form action="/brand/{{ $brand->id }}/delete" method="POST">
   @csrf
-  @method('delete')   
+  @method('delete')
   <div class="modal fade" id="deleteModal{{ $brand->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content box-shadow-md black lt m-b">
@@ -85,7 +57,7 @@
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
           </button>
-        </div>                                            
+        </div>
         <div class="modal-footer d-flex justify-content-center">
           <button type="button" class="btn btn-sm btn-success" data-dismiss="modal">Tidak</button>
           <button type="submit" class="btn btn-sm btn-danger">Ya</button>
@@ -94,7 +66,25 @@
     </div>
   </div>
 </form>
-@endforeach
-{{-- /DELETE MODAL --}}  
+@endforeach --}}
+{{-- /DELETE MODAL --}}
 
 @endsection
+
+@push('script-after')
+
+  <script>
+      window.addEventListener('openCreateBrandModal', event => {
+          $("#createBrandModal").modal('show');
+      });
+  </script>
+
+  <script>
+      window.addEventListener('closeCreateBrandModal', event => {
+          $("#createBrandModal").modal('hide');
+      });
+  </script>
+
+  <script src="{{ asset('plugins/sweetalert2/sweetalert2.all.min.js') }}"></script>
+  <script src="{{ asset('assets/myscript.js') }}"></script>
+@endpush
