@@ -47,7 +47,7 @@ class BrandIndex extends Component
         ]);
 
         $this->dispatchBrowserEvent('closeCreateBrandModal');
-        $this->dispatchBrowserEvent('store-success');
+        $this->dispatchBrowserEvent('store-success', ['message' => 'Brand']);
     }
 
     /*
@@ -75,7 +75,7 @@ class BrandIndex extends Component
         $brand->update(['nama_brand' => $this->nama_brand]);
 
         $this->dispatchBrowserEvent('closeEditBrandModal');
-        $this->dispatchBrowserEvent('edit-success');
+        $this->dispatchBrowserEvent('edit-success', ['message' => 'Brand']);
     }
 
     /*
@@ -96,6 +96,6 @@ class BrandIndex extends Component
         $brand->delete();
 
         $this->dispatchBrowserEvent('closeDeleteBrandModal');
-        $this->dispatchBrowserEvent('delete-success');
+        $this->dispatchBrowserEvent('delete-success', ['message' => 'Brand']);
     }
 }
