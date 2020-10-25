@@ -1,15 +1,5 @@
 @extends('layouts.app')
 
-@push('style-after')
-
-  <style>
-    .page-item{
-      background-color: red;
-    }
-  </style>
-
-@endpush
-
 @section('content')
 <div class="padding mt-5">
     <livewire:brand.index>

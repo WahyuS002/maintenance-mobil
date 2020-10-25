@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Brand;
-use Illuminate\Http\Request;
 
 class BrandController extends Controller
 {
@@ -21,41 +20,5 @@ class BrandController extends Controller
             'brands' => $brands,
             'mobils' => $mobils
         ]);
-    }
-
-    public function create()
-    {
-        return view('brands.create');
-    }
-
-    public function store(Request $request)
-    {
-
-        $this->validate($request, [
-            'nama_brand' => 'required'
-        ]);
-
-        $brand = $request->all();
-
-        Brand::create($brand);
-
-        // return redirect()->back();
-        return response()->json(true);
-    }
-
-    public function update(Request $request, Brand $brand)
-    {
-        $brand->nama_brand = $request->nama_brand;
-
-        $brand->save();
-
-        return redirect()->back();
-    }
-
-    public function destroy(Brand $brand)
-    {
-        $brand->delete();
-
-        return redirect()->back();
     }
 }
