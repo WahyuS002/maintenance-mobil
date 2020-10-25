@@ -6,10 +6,12 @@ use Livewire\Component;
 
 use App\Mobil;
 use Livewire\WithFileUploads;
+use Livewire\WithPagination;
 
 class Piece extends Component
 {
     use WithFileUploads;
+    use WithPagination;
 
     public $brands;
     public $id_mobil;

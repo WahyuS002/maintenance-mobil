@@ -42,6 +42,9 @@
         </div>
         @endforeach
       </div>
+      <div class="d-flex justify-content-center">
+        {{ $mobils->links('pagination-links') }}
+      </div>
     </div>
   </div>
 

@@ -20,18 +20,11 @@ Route::middleware('auth')->group(function () {
     // MOBIL
     Route::get('/mobil', 'MobilController@index')->name('admin.mobil');
 
-    Route::get('/mobil/create', 'MobilController@create')->name('mobil.create');
-
-    Route::get('/mobil/{mobil:id}/edit', 'MobilController@edit');
-
-    Route::delete('/mobil/{mobil:id}/delete', 'MobilController@destroy');
-
     // BRAND
     Route::get('/brand', 'BrandController@index')->name('brand');
     Route::get('/brand/{brand:nama_brand}', 'BrandController@show');
 
     Route::get('/brands/create', 'BrandController@create')->name('brand.create');
-    Route::post('/brand/store', 'BrandController@store');
 
     // TREATMENT
     Route::get('/treatment', 'TreatmentController@index')->name('treatment');
