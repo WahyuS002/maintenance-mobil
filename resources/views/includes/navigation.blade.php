@@ -31,6 +31,8 @@
     <!-- search form -->
     @if (request()->is('log/create') or request()->is('mobil'))
       <livewire:logs.searching-mobil>
+    @elseif (request()->is('driver'))
+      <livewire:driver.searching-driver>
     @endif
     <!-- / search form -->
     <ul class="nav navbar-nav ml-auto flex-row">

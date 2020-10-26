@@ -19,4 +19,11 @@ class Driver extends Authenticatable
     {
         return $this->belongsToMany(Mobil::class, 'laporan', 'driver_id', 'mobil_id');
     }
+
+    public function scopeSearch($query, $val)
+    {
+        return $query
+            ->where('nama', 'like', '%' . $val . '%')
+            ->orWhere('nik', 'like', '%' . $val . '%');
+    }
 }

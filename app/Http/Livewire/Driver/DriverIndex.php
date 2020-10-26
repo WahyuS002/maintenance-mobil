@@ -17,15 +17,25 @@ class DriverIndex extends Component
     public $driver_id;
     public $nama, $nik, $foto;
 
+    public $search = null;
+
     protected $rules = [
         'nama' => 'required',
         'nik' => 'required',
         'foto' => 'required|mimes:jpeg,jpg,png',
     ];
 
+    protected $listeners = ['searching'];
+
     public function render()
     {
-        $drivers = Driver::latest()->paginate(8);
+        if ($this->search !== null) {
+            $drivers = Driver::query()
+                ->search($this->search)
+                ->paginate(8);
+        } else {
+            $drivers = Driver::latest()->paginate(8);
+        }
 
         return view('livewire.driver.driver-index', compact('drivers'));
     }
@@ -35,6 +45,11 @@ class DriverIndex extends Component
         $this->nama = '';
         $this->nik = '';
         $this->foto = '';
+    }
+
+    public function searching($search)
+    {
+        $this->search = $search;
     }
 
     /*
