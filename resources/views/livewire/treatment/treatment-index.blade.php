@@ -42,6 +42,11 @@
                 @endforeach
             </tbody>
         </table>
+
+        <div class="d-flex justify-content-center mt-4">
+            {{ $treatments->links('pagination-links') }}
+        </div>
+
     </div>
 
     <!-- START TAMBAH TREATMENT -->

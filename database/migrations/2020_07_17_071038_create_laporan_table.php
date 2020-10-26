@@ -24,7 +24,7 @@ class CreateLaporanTable extends Migration
             $table->string('no_plat', 32);
 
             $table->string('laporan', 64);
-            $table->timestamp('waktu');
+            $table->date('waktu');
             $table->integer('biaya');
 
             // $table->primary(['driver_id', 'mobil_id']);

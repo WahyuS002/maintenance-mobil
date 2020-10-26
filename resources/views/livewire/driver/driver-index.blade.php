@@ -42,6 +42,10 @@
         </div>
     </div>
 
+    <div class="d-flex justify-content-center">
+        {{ $drivers->links('pagination-links') }}
+    </div>
+
     <!-- START TAMBAH DRIVER -->
     <div class="modal fade" id="createDriverModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" wire:ignore.self>
         <div class="modal-dialog" role="document">

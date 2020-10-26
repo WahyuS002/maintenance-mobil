@@ -17,6 +17,10 @@
         @endforeach
     </div>
 
+    <div class="d-flex justify-content-center">
+        {{ $mobils->links('pagination-links') }}
+    </div>
+
     <!-- TAMBAH LOG MODAL -->
     <div wire:ignore.self class="modal fade" id="tambahLogModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">

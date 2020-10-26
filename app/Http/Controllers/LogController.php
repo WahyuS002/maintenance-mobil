@@ -16,7 +16,7 @@ class LogController extends Controller
     {
         $driver_id = Auth::user()->id;
 
-        $laporan = Laporan::where('driver_id', $driver_id)->get();
+        $laporan = Laporan::where('driver_id', $driver_id)->latest()->paginate(5);
 
         return view('logs.index', compact('laporan'));
     }
