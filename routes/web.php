@@ -18,6 +18,9 @@ Route::middleware('auth')->group(function () {
 
     // TREATMENT
     Route::get('/treatment', 'TreatmentController@index')->name('treatment');
+
+    Route::get('/setting/admin', 'AdminSettingController@index')->name('setting.admin');
+    Route::patch('/setting/admin/change-password', 'AdminSettingController@password')->name('setting.admin.password');
 });
 
 // Auth::routes(); Change to

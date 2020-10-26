@@ -67,8 +67,8 @@
                 <small class="text-muted">Profile</small>
               </>
 
-              <li>
-                <a href="widget.html" >
+              <li class="{{ request()->is('setting/admin') ? ' active' : '' }}">
+                <a href="{{ route('setting.admin') }}" >
                   <span class="nav-icon">
                     <i class="fa fa-user"></i>
                   </span>

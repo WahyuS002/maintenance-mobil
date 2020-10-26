@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    
+
 <div ui-view class="app-body" id="view">
     <div class="item padding">
         <div class="box">
@@ -14,7 +14,6 @@
                         <a href class="pull-left m-r-md">
                             <span class="avatar w-96">
                                 <img src="{{ url('storage/'.$driver->foto) }}">
-                                {{-- <i class="on b-white"></i> --}}
                             </span>
                         </a>
                         <div class="clear m-b">
@@ -47,7 +46,7 @@
                             <p>{{ $l->laporan }}</p>
                         </div>
                     </div>
-                    @endforeach                    
+                    @endforeach
                 </div>
             </div>
         </div>
