@@ -2,6 +2,9 @@
 
 @section('content')
 <!-- content -->
+
+<div id="status-success" data-toast="{{ session()->get('status-success') }}"></div>
+
 <div id="content" class="app-content box-shadow-z0" role="main">
   <div class="app-header white box-shadow">
     <div class="navbar navbar-toggleable-sm flex-row align-items-center">
@@ -118,18 +121,30 @@
                   <div class="form-group">
                     <label>Nama</label>
                     <input type="text" class="form-control" value="{{ $driver->nama }}" name="nama">
+                    @error('nama')
+                    <span class="text-danger">{{ $message }}</span>
+                    @enderror
                   </div>
                   <div class="form-group">
                     <label>NIK</label>
                     <input type="text" class="form-control" value="{{ $driver->nik }}" name="nik">
+                    @error('nik')
+                    <span class="text-danger">{{ $message }}</span>
+                    @enderror
                   </div>
                   <div class="form-group">
                     <label>Alamat</label>
                     <input type="text" class="form-control" value="{{ $driver->alamat }}" name="alamat">
+                    @error('alamat')
+                    <span class="text-danger">{{ $message }}</span>
+                    @enderror
                   </div>
                   <div class="form-group">
                     <label>No.HP</label>
                     <input type="text" class="form-control" value="{{ $driver->no_hp }}" name="no_hp">
+                    @error('no_hp')
+                    <span class="text-danger">{{ $message }}</span>
+                    @enderror
                   </div>
                   <div class="form-group">
                     <label>Jenis Kelamin</label>
@@ -165,3 +180,8 @@
   };
 </script>
 @endsection
+
+@push('script-after')
+<script src="{{ asset('plugins/sweetalert2/sweetalert2.all.min.js') }}"></script>
+<script src="{{ asset('assets/myscript.js') }}"></script>
+@endpush
