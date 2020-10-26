@@ -14,6 +14,10 @@
     border-radius: 10px 10px 0px 0px;
 }
 
+.box-user {
+    width: 187px;
+}
+
 .dropdown-more {
     position: absolute;
     top: 10px;

@@ -9,22 +9,12 @@ Route::middleware('auth')->group(function () {
     // DRIVER
     Route::get('/driver', 'DriverController@index')->name('admin.driver');
 
-    Route::get('/driver/create', 'DriverController@create')->name('driver.create');
-    Route::post('/driver/store', 'DriverController@store');
-
-    Route::delete('/driver/{driver:id}/delete', 'DriverController@destroy');
-
-    Route::get('/driver/{driver:id}/edit', 'DriverController@edit');
-    Route::patch('/driver/{driver:id}/update', 'DriverController@update');
-
     // MOBIL
     Route::get('/mobil', 'MobilController@index')->name('admin.mobil');
 
     // BRAND
     Route::get('/brand', 'BrandController@index')->name('brand');
     Route::get('/brand/{brand:nama_brand}', 'BrandController@show');
-
-    Route::get('/brands/create', 'BrandController@create')->name('brand.create');
 
     // TREATMENT
     Route::get('/treatment', 'TreatmentController@index')->name('treatment');
