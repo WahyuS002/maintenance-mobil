@@ -19,22 +19,14 @@
             <th>Laporan</th>
         </thead>
         <tbody>
-          @forelse ($drivers->mobils as $driver)
+          @forelse ($laporan as $l)
           <tr>
             <td>{{ $loop->iteration }}</td>
-            <td>{{ $driver->nama_mobil }}</td>
-            <td>{{ $driver->no_plat }}</td>
-            <td>{{ $driver->pivot->waktu }}</td>
-            <td>{{ $driver->pivot->biaya }}</td>
-            <td>{{ $driver->pivot->laporan }}</td>
-            <td>
-              {{-- <button class="btn btn-icon btn-rounded btn-success" data-toggle="modal" data-target="#editModal{{ $driver->pivot->id }}">
-                <i class="fa fa-pencil"></i>
-              </button>
-              <button class="btn btn-icon btn-rounded btn-danger" data-toggle="modal" data-target="#deleteModal{{ $driver->pivot->id }}">
-                <i class="fa  fa-trash"></i>
-              </button> --}}
-            </td>
+            <td>{{ $l->nama_mobil }}</td>
+            <td>{{ $l->no_plat }}</td>
+            <td>{{ $l->waktu }}</td>
+            <td>{{ $l->biaya }}</td>
+            <td>{{ $l->laporan }}</td>
           </tr>
           @empty
           <tbody>

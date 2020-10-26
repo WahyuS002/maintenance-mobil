@@ -19,6 +19,10 @@ class CreateLaporanTable extends Migration
             $table->integer('driver_id')->constrained('drivers');
             $table->integer('mobil_id')->constrained('mobils');
 
+            $table->string('nama_driver', 64);
+            $table->string('nama_mobil', 64);
+            $table->string('no_plat', 32);
+
             $table->string('laporan', 64);
             $table->timestamp('waktu');
             $table->integer('biaya');

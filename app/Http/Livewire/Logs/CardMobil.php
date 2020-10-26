@@ -5,6 +5,7 @@ namespace App\Http\Livewire\Logs;
 use App\Laporan;
 use Livewire\Component;
 use App\Mobil;
+use App\Driver;
 
 use Illuminate\Support\Facades\Auth;
 
@@ -43,14 +44,20 @@ class CardMobil extends Component
 
     public function tambahLog($mobil_id)
     {
+        $mobil = Mobil::find($mobil_id);
+        $driver = Driver::find($this->user_id);
+
         $validatedData = $this->validate([
             'laporan' => 'required',
             'waktu' => 'required',
             'biaya' => 'required',
         ]);
 
-        $validatedData['driver_id'] = $this->user_id;
-        $validatedData['mobil_id'] = $mobil_id;
+        $validatedData['driver_id'] = $driver->id;
+        $validatedData['mobil_id'] = $mobil->id;
+        $validatedData['nama_driver'] = $driver->nama;
+        $validatedData['nama_mobil'] = $mobil->nama_mobil;
+        $validatedData['no_plat'] = $mobil->no_plat;
 
         Laporan::create($validatedData);
 
@@ -59,6 +66,7 @@ class CardMobil extends Component
         $this->no_plat_mobil = '';
 
         $this->dispatchBrowserEvent('logCreated');
+        return redirect()->route('log');
     }
 
     public function searching($search)

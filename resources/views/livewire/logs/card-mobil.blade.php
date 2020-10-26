@@ -29,7 +29,7 @@
                 </div>
                 <div class="modal-body">
 
-                    <form action="/log/{{ $id_mobil }}/store" method="POST" id="form-create">
+                    <form method="POST" wire:submit.prevent="tambahLog({{ $id_mobil }})">
                         @csrf
                         <div class="form-group">
                             <label for="no_plat">Treatment</label>
@@ -59,7 +59,7 @@
                         <hr>
                         <div class="d-flex bd-highlight mb-3">
                             <button type="button" class="btn btn-sm btn-secondary p-2 bd-highlight mr-2" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-sm btn-primary p-2 bd-highlight" wire:click="tambahLog({{ $id_mobil }})">Tambah</button>
+                            <button type="submit" class="btn btn-sm btn-primary p-2 bd-highlight">Tambah</button>
                         </div>
                     </form>
 

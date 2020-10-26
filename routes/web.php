@@ -36,8 +36,6 @@ Route::middleware('auth:driver')->group(function () {
     Route::get('/log/create', 'logController@create')->name('log.create');
     Route::post('/log/{mobil:id}/store', 'logController@store')->name('log.store');
 
-    // FINDME
-
     Route::patch('/log/{laporan:id}/update', 'logController@update')->name('log.update');
 
     Route::delete('/log/{laporan:id}/delete', 'logController@destroy')->name('log.destroy');

@@ -16,11 +16,9 @@ class LogController extends Controller
     {
         $driver_id = Auth::user()->id;
 
-        $drivers = Driver::find($driver_id);
+        $laporan = Laporan::where('driver_id', $driver_id)->get();
 
-        return view('logs.index', [
-            'drivers' => $drivers,
-        ]);
+        return view('logs.index', compact('laporan'));
     }
 
     public function create()

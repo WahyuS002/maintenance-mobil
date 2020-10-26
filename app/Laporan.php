@@ -8,7 +8,7 @@ class Laporan extends Model
 {
     protected $table = 'laporan';
 
-    protected $fillable = ['driver_id', 'mobil_id', 'laporan', 'waktu', 'biaya'];
+    protected $fillable = ['driver_id', 'mobil_id', 'laporan', 'waktu', 'biaya', 'nama_driver', 'nama_mobil', 'no_plat'];
 
     // public function drivers()
     // {

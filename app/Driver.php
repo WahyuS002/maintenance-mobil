@@ -2,10 +2,8 @@
 
 namespace App;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Database\Eloquent\Model;
 
 class Driver extends Authenticatable
 {
@@ -19,6 +17,6 @@ class Driver extends Authenticatable
 
     public function mobils()
     {
-        return $this->belongsToMany(Mobil::class)->withPivot(['laporan', 'waktu', 'biaya', 'id', 'mobil_id']);
+        return $this->belongsToMany(Mobil::class, 'laporan', 'driver_id', 'mobil_id')->withPivot(['laporan', 'waktu', 'biaya', 'id', 'mobil_id']);
     }
 }

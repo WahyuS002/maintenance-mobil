@@ -20,7 +20,7 @@ class CreateMobilsTable extends Migration
             $table->foreignId('brand_id');
 
             $table->string('no_plat', 32);
-            $table->string('nama_mobil', 128);
+            $table->string('nama_mobil', 64);
             // $table->string('tipe_mobil', 128);
             $table->integer('max_minyak');
             $table->string('foto', 128);
