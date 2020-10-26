@@ -27,26 +27,4 @@ class LogController extends Controller
 
         return view('logs.create', compact('mobils'));
     }
-
-    public function update(Request $request, Laporan $laporan)
-    {
-        $laporan->id = $request->id;
-        $laporan->mobil_id = $request->mobil_id;
-        $laporan->driver_id = Auth::user()->id;
-        $laporan->laporan = $request->laporan;
-        $laporan->waktu = $request->waktu;
-        $laporan->biaya = $request->biaya;
-
-
-        $laporan->save();
-
-        return redirect()->back();
-    }
-
-    public function destroy(laporan $laporan)
-    {
-        $laporan->delete();
-
-        return redirect()->back();
-    }
 }
