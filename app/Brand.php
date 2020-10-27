@@ -17,4 +17,10 @@ class Brand extends Model
     {
         return $this->hasMany(Mobil::class);
     }
+
+    public function scopeSearch($query, $val)
+    {
+        return $query
+            ->where('nama_brand', 'like', '%' . $val . '%');
+    }
 }

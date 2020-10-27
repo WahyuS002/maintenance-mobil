@@ -11,6 +11,7 @@ class BrandIndex extends Component
     use WithPagination;
 
     public $brand, $id_brand, $nama_brand;
+    public $search = null;
 
     protected $paginationTheme = 'bootstrap';
     protected $rules = [
@@ -19,9 +20,19 @@ class BrandIndex extends Component
 
     public function render()
     {
-        $brands = Brand::with('mobils')->latest()->paginate(5);
+        if ($this->search !== null) {
+            $brands = Brand::query()->search($this->search)->paginate(5);
+        } else {
+            $brands = Brand::with('mobils')->latest()->paginate(5);
+        }
 
         return view('livewire.brand.brand-index', compact('brands'));
+    }
+
+    public function updatedSearch($val)
+    {
+        $this->search = $val;
+        $this->resetPage();
     }
 
     /*

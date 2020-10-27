@@ -1,14 +1,22 @@
 <div class="box mt-3">
     <div class="box-header">
-        <div class="d-flex bd-highlight mb-3">
-            <div class="p-2 mr-3">
-                <h2>Brand</h2>
+        <div class="d-flex justify-content-between bd-highlight mb-3">
+
+            <div class="d-flex">
+                <div class="p-2 mr-3">
+                    <h2 class="align-middle mt-1">Brand</h2>
+                </div>
+                <div class="align-self-center">
+                    <a class="btn btn-sm btn-icon white" wire:click="openTambahModal">
+                        <i class="fa fa-plus"></i>
+                    </a>
+                </div>
             </div>
-            <div class="align-self-center">
-                <a class="btn btn-sm btn-icon white" wire:click="openTambahModal">
-                    <i class="fa fa-plus"></i>
-                </a>
+            <div class="align-self-center input">
+                <input type="text" class="form-control" placeholder="Cari Brand..." wire:model="search">
+                <span class="fa fa-search"></span>
             </div>
+
         </div>
     </div>
     <table st-table="rowCollectionBasic" class="table table-striped b-t">

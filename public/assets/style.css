@@ -36,3 +36,17 @@
     height: 15px;
     vertical-align: middle;
 }
+
+.bd-highlight .input input {
+    position: relative;
+    width: 200px;
+    height: 35px;
+    border-radius: 25px;
+}
+
+.bd-highlight .input span {
+    position: absolute;
+    top: 28px;
+    right: 30px;
+    cursor: pointer;
+}

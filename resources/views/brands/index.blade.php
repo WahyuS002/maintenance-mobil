@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@push('style-after')
+  <link rel="stylesheet" href="{{ asset('assets/style.css') }}">
+@endpush
+
 @section('content')
 <div class="padding mt-5">
     <livewire:brand.brand-index>
