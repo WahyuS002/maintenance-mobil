@@ -135,7 +135,7 @@
                 <select class="w-100 dropdown-menu pos-stc inline dark mb-3" wire:model="brand_id">
                   <option value="" disabled>Select</option>
                   @foreach($brands as $brand)
-                  <option value="{{ $brand->id }}">{{ $brand->nama_brand }}</option>
+                  <option value="{{ $brand->id }}" {{ $brand_id == $brand->id ? 'selected' : '' }}>{{ $brand->nama_brand }}</option>
                   @endforeach
                 </select>
                 @error('brand_id')

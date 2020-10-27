@@ -49,6 +49,7 @@ class Piece extends Component
     public function searching($search)
     {
         $this->search = $search;
+        $this->resetPage();
     }
 
     /*
@@ -91,6 +92,7 @@ class Piece extends Component
     */
     public function openEditModal($mobil)
     {
+        $this->brand_id = $mobil['brand_id'];
         $this->id_mobil = $mobil['id'];
         $this->no_plat = $mobil['no_plat'];
         $this->nama_mobil = $mobil['nama_mobil'];
@@ -102,7 +104,6 @@ class Piece extends Component
 
     public function update($id_mobil)
     {
-        $this->validate();
         $mobil = Mobil::find($id_mobil);
 
         $collection = collect($this->validate())->except('search');

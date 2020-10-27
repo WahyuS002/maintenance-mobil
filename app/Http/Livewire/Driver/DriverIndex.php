@@ -50,6 +50,7 @@ class DriverIndex extends Component
     public function searching($search)
     {
         $this->search = $search;
+        $this->resetPage();
     }
 
     /*
