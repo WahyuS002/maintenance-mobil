@@ -1,5 +1,10 @@
 @extends('layouts.app')
 
+@push('style-after')
+<link href="{{ asset('plugins/select2/select2.min.css') }}" rel="stylesheet" />
+<script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.7.2/dist/alpine.min.js" defer></script>
+@endpush
+
 @section('content')
 <div class="padding mt-5">
   <livewire:treatment.treatment-index>
@@ -7,8 +12,13 @@
 @endsection
 
 @push('script-after')
+<script src="{{ asset('plugins/select2/select2.min.js') }}"></script>
 
 <script>
+  $(document).ready(function() {
+      $('#select2').select2();
+  });
+
   window.addEventListener('openCreateTreatmentModal', event => {
       $("#createTreatmentModal").modal('show');
   });

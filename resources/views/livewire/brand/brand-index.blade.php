@@ -1,7 +1,7 @@
 <div class="box mt-3">
     <div class="box-header">
         <div class="d-flex bd-highlight mb-3">
-            <div class="mr-auto p-2">
+            <div class="p-2 mr-3">
                 <h2>Brand</h2>
             </div>
             <div class="align-self-center">

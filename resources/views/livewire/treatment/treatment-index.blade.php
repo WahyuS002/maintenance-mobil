@@ -1,15 +1,26 @@
 <div class="box mt-3">
     <div class="box-header">
-        <div class="d-flex bd-highlight mb-3">
-            <div class="mr-auto p-2 bd-highlight">
-                <h2>Perawatan Mobil</h2>
-                <small>Wrap the table in a div with .table-responsive class</small>
+        <div class="d-flex justify-content-between bd-highlight mb-3">
+
+            <div class="d-flex">
+                <div class="mr-2 p-2 align-self-center">
+                    <h2>Perawatan Mobil</h2>
+                </div>
+                <div class="p-2 align-self-center">
+                    <a class="btn btn-sm btn-icon white" wire:click="openTambahModal">
+                        <i class="fa fa-plus"></i>
+                    </a>
+                </div>
             </div>
-            <div class="p-2 bd-highlight align-self-center">
-                <a class="btn btn-sm btn-icon white" wire:click="openTambahModal">
-                    <i class="fa fa-plus"></i>
-                </a>
+            <div class="align-self-center mr-3" wire:ignore>
+                <select class="js-example-basic-single" name="state" id="select2" style="width: 100px; height:40px;">
+                    @foreach ($mobils as $mobil)
+                    <option value="{{ $mobil->id }}">{{ $mobil->nama_mobil }}</option>
+                    @endforeach
+                </select>
+                <button class="btn btn-primary btn-sm ml-2" wire:click="resetFilter"> <span class="fa fa-refresh mr-1"></span> reset</button>
             </div>
+
         </div>
     </div>
     <div class="table-responsive">
@@ -24,7 +35,7 @@
                 </tr>
             </thead>
             <tbody>
-                @foreach ($treatments as $treatment)
+                @forelse ($treatments as $treatment)
                 <tr>
                     <td>{{ $loop->iteration }}</td>
                     <td>{{ $treatment->mobil->nama_mobil }}</td>
@@ -39,7 +50,13 @@
                         </button>
                     </td>
                 </tr>
-                @endforeach
+                @empty
+                <tr>
+                    <td colspan="5">
+                        <p class="text-center text-danger">Data Tidak Ditemukan</p>
+                    </td>
+                </tr>
+                @endforelse
             </tbody>
         </table>
 
@@ -117,7 +134,7 @@
                         <div class="form-group">
                             <label for="dropdown">Mobil</label>
                             <div>
-                                <select class="w-100 dropdown-menu pos-stc inline dark mb-3" wire:model="mobil_id">
+                                <select class="w-100 dropdown-menu pos-stc inline dark mb-3">
                                     <option value="">Select</option>
                                     @foreach($mobils as $mobil)
                                     <option value="{{ $mobil->id }}">{{ $mobil->nama_mobil }}</option>
@@ -167,7 +184,13 @@
         </div>
     </div>
     <!-- END DELETE TREATMENT -->
-
-
 </div>
+
+@push('script-after')
+<script>
+     $('#select2').on('change', function (e) {
+        @this.set('id_mobil', e.target.value);
+    });
+</script>
+@endpush
 

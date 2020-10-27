@@ -13,4 +13,11 @@ class Treatment extends Model
     {
         return $this->belongsTo(Mobil::class);
     }
+
+    public function scopeFilter($query, $val)
+    {
+        return $query
+            ->where('mobil_id', $val)
+            ->latest()->paginate(5);
+    }
 }

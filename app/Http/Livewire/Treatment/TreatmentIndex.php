@@ -9,6 +9,9 @@ use Livewire\Component;
 class TreatmentIndex extends Component
 {
     public $treatment_id, $mobil_id, $jenis, $waktu;
+    public $id_mobil;
+
+    protected $filter = null;
 
     protected $rules = [
         'mobil_id' => 'required',
@@ -18,7 +21,12 @@ class TreatmentIndex extends Component
 
     public function render()
     {
-        $treatments = Treatment::latest()->paginate(5);
+        if ($this->filter !== null) {
+            $treatments = Treatment::query()->filter($this->filter);
+        } else {
+            $treatments = Treatment::with('mobil')->latest()->paginate(5);
+        }
+
         $mobils = Mobil::get();
 
         return view('livewire.treatment.treatment-index', compact('treatments', 'mobils'));
@@ -29,6 +37,11 @@ class TreatmentIndex extends Component
         $this->mobil_id = '';
         $this->jenis = '';
         $this->waktu = '';
+    }
+
+    public function resetFilter()
+    {
+        $this->filter = null;
     }
 
     /*
@@ -91,5 +104,10 @@ class TreatmentIndex extends Component
 
         $this->dispatchBrowserEvent('closeDeleteTreatmentModal');
         $this->dispatchBrowserEvent('delete-success', ['message' => 'Treatment']);
+    }
+
+    public function updatedIdMobil($val)
+    {
+        $this->filter = $val;
     }
 }
